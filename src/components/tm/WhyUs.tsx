@@ -134,7 +134,7 @@ export default function WhyUs() {
       <Wave id="1:22" y0={2604} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(1373) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(1373) }}>
         <Reveal
           as="h2"
           className="tm-font-head absolute whitespace-nowrap font-bold text-[#3D3D3D]"

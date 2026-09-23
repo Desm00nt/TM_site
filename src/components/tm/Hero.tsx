@@ -26,7 +26,8 @@ export default function Hero() {
         draggable={false}
       />
 
-      <div className="relative mx-auto hidden h-full max-w-[1280px] md:block [container-type:inline-size]">
+      {/* холст = вся ширина окна: контент и фон масштабируются вместе (cqw от вьюпорта) */}
+      <div className="relative hidden h-full md:block [container-type:inline-size]">
         {/* хедер */}
         <Header variant="desktop" />
 

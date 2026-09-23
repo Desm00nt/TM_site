@@ -15,7 +15,7 @@ export default function Faq() {
       <Wave id="1:26" y0={6689} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(758) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(758) }}>
         {/* большие знаки вопроса — точные bbox из макета, без искажения прозрачности */}
         <Deco x={108} y={6793 + Y} w={510} h={642} src="/images/rc_1-209.png" z={0} />
         <Deco x={725} y={6867 + Y} w={397} h={513} src="/images/rc_1-210.png" z={0} />

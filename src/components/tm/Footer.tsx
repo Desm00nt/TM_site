@@ -19,7 +19,7 @@ export default function Footer() {
       <Wave id="1:27" y0={8254} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(478) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(478) }}>
         {/* логотип и название */}
         <Deco x={108} y={8346 + Y} w={68} src="/images/image_212_9-51.png" z={2} />
         <Reveal

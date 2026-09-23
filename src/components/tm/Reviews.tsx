@@ -61,7 +61,7 @@ export default function Reviews() {
       <Wave id="1:20" y0={5866} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(823) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(823) }}>
         <Reveal
           as="h2"
           className="tm-font-head absolute whitespace-nowrap font-bold text-[#F8F8F7]"

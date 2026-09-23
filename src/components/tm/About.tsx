@@ -45,7 +45,7 @@ export default function About() {
   return (
     <section id="about" className="relative z-[5] bg-[#256BC6]">
       {/* ===== DESKTOP: коллаж как в макете ===== */}
-      <div className="relative mx-auto hidden h-full max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(1933) }}>
+      <div className="relative hidden h-full md:block [container-type:inline-size]" style={{ height: u(1933) }}>
         {/* наклейки и декор */}
         <Deco x={898} y={690 + Y} w={252} h={294} src="/images/frag_telegram-cloud-document-_1-114.png" z={6} className="tm-float" />
         <Hand x={877} y={758 + Y} w={117} file="/images/texts/t_1-81.png" text="любимые значки из территории!" z={7} />

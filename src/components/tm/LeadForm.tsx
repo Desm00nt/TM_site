@@ -65,7 +65,7 @@ export default function LeadForm() {
       <Wave id="1:21" y0={7447} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(807) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(807) }}>
         <Reveal
           as="h2"
           className="tm-font-head absolute font-bold text-[#F8F8F7]"

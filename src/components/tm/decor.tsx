@@ -200,8 +200,9 @@ export function OrangeButton({
   className?: string;
   size?: "md" | "lg";
 }) {
-  const cls = `inline-flex items-center justify-center rounded-[30px] bg-[#EC812D] text-[#F8F8F7] tm-font-head font-bold tracking-wide shadow-[0_2px_10px_rgba(236,129,45,0.4)] transition-all duration-200 hover:bg-[#f2933f] hover:shadow-[0_4px_16px_rgba(236,129,45,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer ${
-    size === "lg" ? "text-sm md:text-xl px-8 md:px-14 py-3 md:py-4" : "text-xs md:text-base px-6 md:px-9 py-2.5 md:py-3"
+  // десктопные паддинги/радиус — в cqw, чтобы кнопка масштабировалась вместе с макетом
+  const cls = `inline-flex items-center justify-center rounded-[30px] md:rounded-[2.3438cqw] bg-[#EC812D] text-[#F8F8F7] tm-font-head font-bold tracking-wide shadow-[0_2px_10px_rgba(236,129,45,0.4)] transition-all duration-200 hover:bg-[#f2933f] hover:shadow-[0_4px_16px_rgba(236,129,45,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer ${
+    size === "lg" ? "text-sm md:text-[1.5625cqw] px-8 md:px-[4.375cqw] py-3 md:py-[1.25cqw]" : "text-xs md:text-[1.25cqw] px-6 md:px-[2.8125cqw] py-2.5 md:py-[0.9375cqw]"
   } ${className}`;
   if (href) {
     return (

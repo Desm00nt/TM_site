@@ -16,7 +16,7 @@ export default function Shifts() {
       <Wave id="1:19" y0={3975} />
 
       {/* ===== DESKTOP ===== */}
-      <div className="relative mx-auto hidden max-w-[1280px] md:block [container-type:inline-size]" style={{ height: u(790) }}>
+      <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(790) }}>
         <Reveal
           as="h2"
           className="tm-font-head absolute font-bold text-[#D9E3F4]"
@@ -60,7 +60,7 @@ export default function Shifts() {
                 width: u(261),
                 height: u(379),
                 borderRadius: u(10),
-                border: "2px solid #D9E3F4",
+                border: `${u(2)} solid #D9E3F4`,
               }}
             >
               <Reveal delay={i * 90} className="absolute inset-0">
