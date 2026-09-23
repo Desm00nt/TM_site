@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# next.js
+/.next/
+/out/
+
+# локальный тест статики под /TM_site/
+/.gh_test/
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# локальные данные и рабочие артефакты песочницы
+/db/
+*.db
+figma/
+download/
+worklog.md
+Caddyfile
+agent-ctx/
+.zscripts/
+skills/
+mini-services/
+tests/
+examples/
+tsconfig.tsbuildinfo
+
+# env
+.env
+.env.*
