@@ -1,14 +1,5 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Сайт детского лагеря «Территория МЫ»
 User-agent: *
 Allow: /
+
+Sitemap: https://desm00nt.github.io/TM_site/sitemap.xml
