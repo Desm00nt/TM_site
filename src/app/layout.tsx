@@ -88,6 +88,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
+    "yandex-verification": "a5e40b1c867d845f",
     "geo.region": "RU-TA",
     "geo.placename": "Казань, Республика Татарстан",
     "geo.position": "55.7892;49.1437",
