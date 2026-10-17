@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Philosopher, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-
-const philosopher = Philosopher({
-  variable: "--font-philosopher",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "700"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const SITE_URL = "https://desm00nt.github.io";
 const OG_IMAGE = "/TM_site/images/og-cover.jpg";
@@ -26,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Территория МЫ",
   },
   description:
-    "Детский лагерь «Территория МЫ» в Татарстане: летние смены для детей и подростков в ГК «Регина» (Мамадыш). 27 лет опыта, более 32 000 участников. 5-разовое питание, трансфер, медицинское сопровождение, круглосуточные вожатые. Офис в Казани — подберём путёвку!",
+    "Детский лагерь «Территория МЫ» в Татарстане: летние и осенние смены для детей и подростков в ГК «Регина» (Мамадыш). 27 лет опыта, более 32 000 участников. 5-разовое питание, трансфер, медицинское сопровождение, круглосуточные вожатые. Офис в Казани — подберём путёвку!",
   keywords: [
     "территория мы",
     "детский лагерь",
@@ -38,6 +25,8 @@ export const metadata: Metadata = {
     "отдых для детей",
     "лагерь для детей",
     "летний лагерь",
+    "осенний лагерь",
+    "осенние каникулы для детей",
     "детские лагеря казань",
     "лагерь татарстан",
     "лагерь мамадыш",
@@ -55,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Территория МЫ — лагерь, где становятся личностью",
     description:
-      "Республиканский интеллектуально-психологический лагерь для детей в Татарстане. Летние смены в ГК «Регина», Мамадыш. Подберите смену на сайте!",
+      "Республиканский интеллектуально-психологический лагерь для детей в Татарстане. Летние и осенние смены в ГК «Регина», Мамадыш. Подберите смену на сайте!",
     url: "/TM_site/",
     siteName: "Территория МЫ",
     type: "website",
@@ -73,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Территория МЫ — детский лагерь в Казани и Татарстане",
     description:
-      "Летние смены для детей и подростков в ГК «Регина», Мамадыш. 27 лет опыта, более 32 000 участников.",
+      "Летние и осенние смены для детей и подростков в ГК «Регина», Мамадыш. 27 лет опыта, более 32 000 участников.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -104,7 +93,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={`${philosopher.variable} ${montserrat.variable} antialiased bg-[#D9E3F4] text-[#3D3D3D] font-[family-name:var(--font-montserrat)]`}
+        className="antialiased bg-[#D9E3F4] text-[#3D3D3D] font-[family-name:var(--font-montserrat)]"
       >
         {children}
         <Toaster />

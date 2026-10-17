@@ -1,17 +1,9 @@
 "use client";
 
-import { Deco, Hand, Reveal } from "./decor";
+import { Deco, Fig, Hand, Reveal } from "./decor";
 import { u } from "@/lib/tm";
 
 const Y = -671; // сдвиг к началу секции
-
-const PAPERS = {
-  reach: { img: "/images/frag_image_85_1-51.png", x: 69, y: 789, w: 581, h: 532 },
-  creat: { img: "/images/image_92_1-62.png", x: 703, y: 1072, w: 497, h: 487 },
-  unite: { img: "/images/image_93_1-32.png", x: 65, y: 1419, w: 505, h: 507 },
-  grow: { img: "/images/image_94_1-31.png", x: 650, y: 1682, w: 463, h: 463 },
-  comfort: { img: "/images/frag_image_97_1-45.png", x: 108, y: 2070, w: 568, h: 576 },
-};
 
 /** Текст на бумажке: координаты в дизайн-пикселях страницы */
 function PaperText({
@@ -47,14 +39,14 @@ export default function About() {
       {/* ===== DESKTOP: коллаж как в макете ===== */}
       <div className="relative hidden h-full md:block [container-type:inline-size]" style={{ height: u(1933) }}>
         {/* наклейки и декор */}
-        <Deco x={898} y={690 + Y} w={252} h={294} src="/images/frag_telegram-cloud-document-_1-114.png" z={6} className="tm-float" />
+        <Fig box={[898.046, 690 + Y, 252.085, 293.651]} inner={[203.705, 257.401]} rot={11.81} src="/images/telegram-cloud-document-2-5237_1-114.png" crop={{ h: 223.09, l: -52.99, t: -54.36, w: 211.42 }} shadow={[0, 4, 4, "rgba(0,0,0,0.1)"]} z={6} className="tm-float" />
         <Hand x={877} y={758 + Y} w={117} file="/images/texts/t_1-81.png" text="любимые значки из территории!" z={7} />
-        <Deco x={767} y={780 + Y} w={133} h={132} src="/images/frag_image_126_1-126.png" z={6} />
+        <Fig box={[766.954, 780 + Y, 132.527, 131.79]} inner={[110, 109]} rot={-13.59} src="/images/image_126_1-126.png" crop={{ h: 455.11, l: -148.25, t: -22.22, w: 673.68 }} z={6} />
 
         {/* Территория достижений */}
-        <Deco {...PAPERS.reach} y={PAPERS.reach.y + Y} src={PAPERS.reach.img} z={1} />
+        <Fig box={[69, 789 + Y, 580.154, 524.862]} inner={[543.146, 482.816]} rot={-4.6} src="/images/image_85_1-51.png" crop={{ h: 125.55, l: 0, t: 0, w: 100 }} z={1} />
         <Hand x={106} y={808 + Y} w={334} file="/images/texts/t_1-65.png" text="Территория достижений" />
-        <Deco x={465} y={808 + Y} w={71} h={67} src="/images/frag_image_212_1-291.png" z={5} />
+        <Fig box={[464.954, 808 + Y, 71, 67]} src="/images/image_212_1-291.png" crop={{ h: 225.55, l: -18.33, t: -15.42, w: 320 }} z={5} />
         <PaperText x={205} y={953}>
           1 место в рейтинге
           <br />
@@ -77,9 +69,9 @@ export default function About() {
         </PaperText>
 
         {/* Территория креативности */}
-        <Deco {...PAPERS.creat} y={PAPERS.creat.y + Y} src={PAPERS.creat.img} z={1} />
+        <Fig box={[703, 1072 + Y, 497, 487]} src="/images/image_92_1-62.png" fit="cover" z={1} />
         <Hand x={726} y={952 + Y} w={360} file="/images/texts/t_1-64.png" text="Территория креативности" />
-        <Deco x={695} y={979 + Y} w={119} h={120} src="/images/frag_image_217_1-292.png" z={2} />
+        <Fig box={[694.57, 978.53 + Y, 118.541, 119.552]} inner={[87.529, 82.724]} rot={126.44} src="/images/image_212_1-291.png" crop={{ h: 212.45, l: -187.25, t: -22.82, w: 301.18 }} z={2} />
         <PaperText x={738} y={1112}>
           Насыщенная
           <br />
@@ -108,10 +100,10 @@ export default function About() {
         </PaperText>
 
         {/* Территория сплочения */}
-        <Deco {...PAPERS.unite} y={PAPERS.unite.y + Y} src={PAPERS.unite.img} z={1} />
+        <Fig box={[65, 1419 + Y, 504.564, 506.894]} inner={[449.002, 451.712]} rot={-7.57} src="/images/image_93_1-32.png" fit="cover" z={1} />
         <Hand x={153} y={1393 + Y} w={306} file="/images/texts/t_1-66.png" text="Территория сплочения" />
-        <Deco x={100} y={1419 + Y} w={104} h={110} src="/images/frag_image_215_1-293.png" z={5} />
-        <Hand x={534} y={1553 + Y} w={90} file="/images/texts/t_1-80.png" text="+ 100 друзей" />
+        <Fig box={[99.734, 1419 + Y, 103.528, 109.667]} inner={[97.352, 54.168]} rot={129.23} src="/images/image_212_1-291.png" crop={{ h: 284.44, l: -126.89, t: -167.22, w: 237.4 }} z={5} />
+        <Hand x={1006} y={1448 + Y} w={90.4} file="/images/texts/t_1-80.png" text="+ 100 друзей" />
         <PaperText x={210} y={1585}>
           Атмосфера доверия
           <br />
@@ -127,9 +119,9 @@ export default function About() {
         </PaperText>
 
         {/* Территория развития */}
-        <Deco {...PAPERS.grow} y={PAPERS.grow.y + Y} src={PAPERS.grow.img} z={1} />
+        <Fig box={[650, 1682 + Y, 463, 463]} src="/images/image_94_1-31.png" fit="cover" opacity={0.97} z={1} />
         <Hand x={766} y={1633 + Y} w={295} file="/images/texts/t_1-67.png" text="Территория развития" />
-        <Deco x={1046} y={1665 + Y} w={85} h={116} src="/images/frag_image_213_1-294.png" z={5} />
+        <Fig box={[1045.76, 1665.2 + Y, 85.363, 116.368]} inner={[59.076, 104.165]} rot={-15.91} src="/images/image_212_1-291.png" crop={{ h: 161.77, l: -170.19, t: -9.16, w: 427.86 }} z={5} />
         <PaperText x={730} y={1801}>
           Большой выбор направлений
           <br />
@@ -145,9 +137,9 @@ export default function About() {
         </PaperText>
 
         {/* Территория комфорта */}
-        <Deco {...PAPERS.comfort} y={PAPERS.comfort.y + Y} src={PAPERS.comfort.img} z={1} />
+        <Fig box={[107.744, 2069.63 + Y, 567.966, 575.982]} inner={[479.543, 489.829]} rot={11.56} src="/images/image_97_1-45.png" crop={{ h: 144.82, l: 0, t: -13.69, w: 100 }} z={1} />
         <Hand x={216} y={2086 + Y} w={313} file="/images/texts/t_1-68.png" text="Территория комфорта" />
-        <Deco x={142} y={2136 + Y} w={136} h={102} src="/images/frag_image_214_1-295.png" z={5} />
+        <Fig box={[141.954, 2136 + Y, 136.464, 102.253]} src="/images/image_212_1-291.png" crop={{ h: 316.05, l: -13.35, t: -196.91, w: 233.08 }} z={5} />
         <PaperText x={242} y={2258}>
           Отряды по 12-13 человек
         </PaperText>
@@ -163,13 +155,13 @@ export default function About() {
         </PaperText>
 
         {/* стикеры */}
-        <Deco x={316} y={1836 + Y} w={200} h={218} src="/images/frag_IMG_6328_(1)_1_1-115.png" z={6} className="tm-float" />
-        <Deco x={684} y={2127 + Y} w={167} h={188} src="/images/frag_IMG_6326_(1)_1_1-116.png" z={6} className="tm-float" />
+        <Fig box={[316, 1836 + Y, 200.278, 218.423]} inner={[162.776, 186.891]} rot={-12.86} src="/images/IMG_6328_(1)_1_1-115.png" crop={{ h: 300.29, l: -63.3, t: -89.37, w: 258.59 }} shadow={[0, 4, 4, "rgba(0,0,0,0.1)"]} z={6} className="tm-float" />
+        <Fig box={[684, 2127 + Y, 167, 188]} src="/images/IMG_6326_(1)_1_1-116.png" fit="cover" pos="bottom" shadow={[0, 4, 4, "rgba(0,0,0,0.1)"]} z={6} className="tm-float" />
         {/* блёстка и рукописная подпись у галстука */}
-        <Deco x={516} y={1340 + Y} w={109} h={92} src="/images/frag_image_128_1-128.png" z={2} />
+        <Fig box={[515.954, 1340 + Y, 109, 92]} src="/images/image_144_1-39.png" crop={{ h: 843.2, l: -216.22, t: -400.8, w: 1008.11 }} z={2} />
         <Hand x={853} y={2260 + Y} w={158} file="/images/texts/t_1-82.png" text="хочу стать героем дня и получить галстук!" z={7} />
         {/* галстук — заходит на следующую секцию */}
-        <Deco x={768} y={1844 + Y} w={714} h={956} src="/images/frag_galstuk_1-42.png" z={10} />
+        <Fig box={[767.954, 1844 + Y, 714, 956]} src="/images/galstuk_1-42.png" crop={{ h: 133.89, l: -18.49, t: -18.51, w: 134.45 }} z={10} />
 
         {/* заголовок */}
         <Reveal
@@ -179,88 +171,9 @@ export default function About() {
         >
           О НАС
         </Reveal>
-        <Deco x={99} y={771 + Y} w={195} src="/images/decor_Vector_16_1-79.png" z={2} />
+        <Fig box={[98.974, 770.57 + Y, 194.931, 37.066]} inner={[194.189, 17.217]} rot={5.89} src="/images/decor_Vector_16_1-79.png" z={2} />
       </div>
 
-      {/* ===== MOBILE ===== */}
-      <div className="px-5 py-12 md:hidden">
-        <Reveal as="h2" className="tm-font-head text-4xl font-bold text-[#D9E3F4]">
-          О НАС
-        </Reveal>
-        <Reveal as="p" className="tm-font-body mt-2 text-base font-medium text-[#D9E3F4]/90">
-          Пять территорий, где ребёнок растёт, творит, дружит и отдыхает
-        </Reveal>
-
-        <div className="mt-8 flex flex-col gap-10">
-          {/* Достижения */}
-          <Reveal>
-            <img src="/images/texts/t_1-65.png" alt="Территория достижений" className="h-auto w-[80%]" />
-            <div className="relative mt-2">
-              <img src={PAPERS.reach.img} alt="" aria-hidden className="h-auto w-full" />
-              <div className="absolute left-[22%] top-[26%] space-y-3">
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">1 место в рейтинге<br />лагерей Татарстана</p>
-                <p className="tm-font-body text-[3.4vw] leading-snug text-[#3D3D3D]">Более <span className="font-medium text-[#EC812D]">70 наград</span> в конкурсах<br />по летнему отдыху</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Более 357 актуальных смен<br />и 774 уникальных проектов</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Более 32 607 счастливых<br />участников смен</p>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Креативность */}
-          <Reveal>
-            <img src="/images/texts/t_1-64.png" alt="Территория креативности" className="ml-auto h-auto w-[86%]" />
-            <div className="relative mt-2">
-              <img src={PAPERS.creat.img} alt="" aria-hidden className="h-auto w-full" />
-              <div className="absolute left-[7%] top-[14%] space-y-3">
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Насыщенная разнообразная программа</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Яркие уникальные события, авторские мероприятия</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Ролевые игры, квесты, реалити-шоу, Dance-battle</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Фестивали, стратегические и детективные игры, вечёрки-театрализации, командные чемпионаты</p>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Сплочение */}
-          <Reveal>
-            <img src="/images/texts/t_1-66.png" alt="Территория сплочения" className="h-auto w-[78%]" />
-            <div className="relative mt-2">
-              <img src={PAPERS.unite.img} alt="" aria-hidden className="h-auto w-full" />
-              <div className="absolute left-[28%] top-[24%] space-y-3">
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Атмосфера доверия<br />и поддержки</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Любимые всеми традиции</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Командный дух</p>
-              </div>
-              <img src="/images/texts/t_1-80.png" alt="+ 100 друзей" className="absolute -right-1 top-[62%] h-auto w-[18%]" />
-            </div>
-          </Reveal>
-
-          {/* Развитие */}
-          <Reveal>
-            <img src="/images/texts/t_1-67.png" alt="Территория развития" className="ml-auto h-auto w-[74%]" />
-            <div className="relative mt-2">
-              <img src={PAPERS.grow.img} alt="" aria-hidden className="h-auto w-full" />
-              <div className="absolute left-[16%] top-[26%] space-y-3">
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Большой выбор направлений<br />для самореализации</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Тренинги, мастер-классы</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Личностный рост каждого ребёнка</p>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Комфорт */}
-          <Reveal>
-            <img src="/images/texts/t_1-68.png" alt="Территория комфорта" className="h-auto w-[80%]" />
-            <div className="relative mt-2">
-              <img src={PAPERS.comfort.img} alt="" aria-hidden className="h-auto w-full" />
-              <div className="absolute left-[24%] top-[24%] space-y-3">
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Отряды по 12-13 человек</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">4 возрастные группы<br />(1-3, 4-5, 6-7 и 8-11 классы)</p>
-                <p className="tm-font-body text-[3.4vw] font-medium leading-snug text-[#3D3D3D]">Комфортные условия<br />размещения (ГК &quot;Регина&quot;)</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </div>
     </section>
   );
 }

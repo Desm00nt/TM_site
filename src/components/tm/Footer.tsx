@@ -21,7 +21,7 @@ export default function Footer() {
       {/* ===== DESKTOP ===== */}
       <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(478) }}>
         {/* логотип и название */}
-        <Deco x={108} y={8346 + Y} w={68} src="/images/image_212_9-51.png" z={2} />
+        <Deco x={108} y={8346 + Y} w={68} src="/images/frag_image_212_9-51.png" z={2} />
         <Reveal
           as="p"
           className="tm-font-head absolute font-bold text-[#256BC6]"
@@ -90,7 +90,7 @@ export default function Footer() {
           ГК «Регина», Мамадыш
         </p>
 
-        <a href="#" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
+        <a href="#privacy" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
           Политика конфиденциальности
         </a>
         <a href="#top" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8676 + Y), fontSize: u(15) }}>
@@ -101,7 +101,7 @@ export default function Footer() {
       {/* ===== MOBILE ===== */}
       <div className="px-5 pb-10 pt-8 md:hidden">
         <div className="flex items-start gap-3">
-          <img src="/images/image_212_9-51.png" alt="Логотип Территория МЫ" className="h-14 w-auto" />
+          <img src="/images/frag_image_212_9-51.png" alt="Логотип Территория МЫ" className="h-14 w-auto" />
           <div>
             <p className="tm-font-head text-3xl font-bold leading-tight text-[#256BC6]">
               ТЕРРИТОРИЯ
@@ -163,7 +163,7 @@ export default function Footer() {
             <img src="/images/frag_image_185_1-288.png" alt="" aria-hidden className="w-4" />
             ГК «Регина», Мамадыш
           </p>
-          <p className="pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</p>
+          <a href="#privacy" className="block pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</a>
         </div>
       </div>
     </footer>

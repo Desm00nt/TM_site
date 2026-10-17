@@ -178,47 +178,6 @@ export default function WhyUs() {
         <Deco x={838} y={3882 + Y} w={226} h={241} src="/images/frag_IMG_6325_(1)_1_1-169.png" z={12} className="tm-float" />
       </div>
 
-      {/* ===== MOBILE ===== */}
-      <div className="px-5 py-12 md:hidden">
-        <Reveal as="h2" className="tm-font-head text-4xl font-bold leading-tight text-[#3D3D3D]">
-          ПОЧЕМУ РОДИТЕЛИ
-        </Reveal>
-        <img src="/images/texts/t_1-69.png" alt="выбирают нас" className="mt-1 h-auto w-[70%]" />
-        <Reveal as="p" className="tm-font-body mt-4 text-base font-medium text-[#3D3D3D]">
-          Мы создаём среду, где ребёнок чувствует себя важным, раскрывает таланты и находит друзей на всю жизнь, а родители могут быть спокойны.
-        </Reveal>
-
-        <div className="mt-6 flex justify-center gap-1">
-          <img src="/images/frag_telegram-cloud-photo-siz_1-118.png" alt="Дети в лагере" className="h-auto w-[38%] -rotate-6 shadow-md" />
-          <img src="/images/frag_image_118_1-119.png" alt="Отряд в лагере" className="h-auto w-[34%] rotate-3 shadow-md" />
-          <img src="/images/frag_image_117_1-117.png" alt="Выступление" className="h-auto w-[40%] -rotate-2 shadow-md" />
-        </div>
-
-        <img src="/images/texts/t_1-72.png" alt="лето, которое помнят" className="mt-8 h-auto w-[52%]" />
-
-        <div className="mt-6 flex flex-col gap-8">
-          {FEATURES.map((f) => (
-            <Reveal key={f.title} className="flex gap-3">
-              <img src={f.icon} alt="" aria-hidden className="h-10 w-10 shrink-0 object-contain" />
-              <div>
-                <h3 className="tm-font-head text-lg font-bold leading-snug text-[#3D3D3D]">{f.title}</h3>
-                <p className="tm-font-body mt-1 text-sm font-medium leading-snug text-[#3D3D3D]">
-                  {f.text.replace(/\n/g, " ")}
-                </p>
-                <div className="mt-3 flex items-end gap-2">
-                  <img src={f.photo} alt="" aria-hidden className="h-auto w-[46%] rounded-lg shadow" />
-                  <div className="flex items-center gap-1.5">
-                    <img src={f.statImg} alt={f.stat} className="h-6 w-auto" />
-                    <span className="tm-font-body text-[11px] font-medium leading-tight text-[#3D3D3D]">
-                      {f.statText.replace(/\n/g, " ")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

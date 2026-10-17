@@ -16,10 +16,10 @@ export default function Header({ variant = "desktop" }: { variant?: "desktop" | 
           style={{ left: u(78), top: u(28), width: u(68), height: u(100), zIndex: 30 }}
           aria-label="Территория МЫ — на главную"
         >
-          <img src="/images/image_212_9-51.png" alt="Территория МЫ — логотип" className="h-full w-full object-contain" />
+          <img src="/images/frag_image_212_9-51.png" alt="Территория МЫ — логотип" className="h-full w-full object-contain" />
         </a>
         <ul
-          className="tm-font-body absolute flex items-center font-medium"
+          className="tm-font-body absolute flex items-start font-medium"
           style={{ left: 0, top: u(56), fontSize: u(20), lineHeight: u(24), color: "#256BC6", zIndex: 30 }}
         >
           {NAV.map((n, i) => (
@@ -44,7 +44,7 @@ export default function Header({ variant = "desktop" }: { variant?: "desktop" | 
     <header className="sticky top-0 z-50 bg-[#F8F8F7]/95 backdrop-blur-sm shadow-[0_1px_0_rgba(37,107,198,0.15)]">
       <div className="flex items-center justify-between px-4 py-2">
         <a href="#" className="flex items-center gap-2" aria-label="Территория МЫ — на главную">
-          <img src="/images/image_212_9-51.png" alt="Логотип Территория МЫ" className="h-11 w-auto" />
+          <img src="/images/frag_image_212_9-51.png" alt="Логотип Территория МЫ" className="h-11 w-auto" />
         </a>
         <div className="flex items-center gap-2">
           <OrangeButton href="#form" className="!px-4 !py-2 !text-[11px]">

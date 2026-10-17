@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "./Header";
-import { Deco, Hand, OrangeButton, Reveal, Wave } from "./decor";
+import { Deco, Fig, Hand, OrangeButton, Reveal, Wave } from "./decor";
 import { u } from "@/lib/tm";
 
 const STATS = [
@@ -14,20 +14,15 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-[#F8F8F7] max-md:!h-auto"
+      className="relative z-[7] overflow-x-clip bg-[#D9E3F4]"
       style={{ height: u(671) }}
     >
-      {/* мятая бумага — фон */}
-      <img
-        src="/images/frag_bumaga_1-13.png"
-        alt=""
-        aria-hidden
-        className="absolute left-0 top-0 h-auto w-full max-md:!h-full max-md:!object-cover"
-        draggable={false}
-      />
-
       {/* холст = вся ширина окна: контент и фон масштабируются вместе (cqw от вьюпорта) */}
       <div className="relative hidden h-full md:block [container-type:inline-size]">
+        {/* мятая бумага — фон (узел 30:9: повёрнут на 90.29°, opacity .6) */}
+        <div className="absolute inset-0 overflow-hidden">
+        <Fig box={[0, 0, 1301.227, 703.653]} inner={[696.991, 1297.661]} rot={90.29} src="/images/frag_bumaga_1-13.png" crop={{ h: 100, l: 0, t: 0, w: 135.85 }} opacity={0.6} z={0} />
+        </div>
         {/* хедер */}
         <Header variant="desktop" />
 
@@ -94,70 +89,20 @@ export default function Hero() {
             517×517 и поворот +5.727° (bbox 566×566 получается поворотом), фото 1:24 —
             каноничный рендер-кроп в bbox узла */}
         <Deco x={696.12} y={210.35} w={517.05} h={517.43} rot={5.727} src="/images/frag_image_84_1-23.png" z={11} />
-        <Deco x={742} y={254} w={425} h={430} src="/images/rc_1-24.png" z={12} alt="Дети бегут на территории лагеря" />
-      </div>
-
-      {/* ===== MOBILE ===== */}
-      <div className="relative md:hidden">
-        <Header variant="mobile" />
-        <div className="relative px-5 pb-10 pt-4">
-          <Reveal>
-            <p className="tm-font-body text-sm font-medium text-[#3D3D3D]">
-              Республиканский интеллектуально-психологический лагерь
-            </p>
-            <h1 className="tm-font-head mt-1 text-[13vw] font-bold leading-[1.05] text-[#256BC6]">
-              ТЕРРИТОРИЯ
-              <br />
-              МЫ
-            </h1>
-          </Reveal>
-
-          {/* бумажка-заметка */}
-          <Reveal delay={120} className="relative mt-4 block">
-            <img src="/images/frag_image_80_1-36.png" alt="" aria-hidden className="h-auto w-full" />
-            <p className="tm-font-body absolute left-[20%] top-[26%] text-base font-medium text-[#3D3D3D]">
-              Лагерь, где становятся
-              <br />
-              <span className="relative inline-block">
-                личностью
-                <img src="/images/decor_Vector_4_1-38.png" alt="" aria-hidden className="absolute left-0 top-full h-auto w-full" />
-              </span>
-            </p>
-          </Reveal>
-
-          {/* полароид */}
-          <Reveal delay={200} className="relative mx-auto mt-6 w-[74%]">
-            <img src="/images/frag_image_84_1-23.png" alt="" aria-hidden className="h-auto w-full" />
-            <div className="absolute z-10 overflow-hidden" style={{ left: "12%", top: "11.5%", width: "76%", height: "76%" }}>
-              <img
-                src="/images/obschee_foto_1-24.webp"
-                alt="Дети бегут на территории лагеря"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <img src="/images/frag_image_144_1-39.png" alt="" aria-hidden className="absolute -left-6 bottom-4 h-auto w-12 tm-float" style={{ ["--tm-rot" as string]: "-10deg" }} />
-          </Reveal>
-
-          {/* статистика */}
-          <Reveal delay={260} className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-            {STATS.map((s) => (
-              <span key={s.text} className="inline-flex items-center gap-1.5">
-                <img src="/images/decor_Vector_13_1-34.png" alt="" aria-hidden className="w-4" />
-                <span className="tm-font-body text-sm font-medium text-[#3D3D3D]">{s.text}</span>
-              </span>
-            ))}
-          </Reveal>
-
-          <Reveal delay={300} className="mt-6">
-            <OrangeButton href="#shifts" size="lg" className="w-full">
-              ПОДОБРАТЬ СМЕНУ
-            </OrangeButton>
-          </Reveal>
-        </div>
+        {/* фото: render узла 1:24 (425×430), обрезанный по контуру повёрнутого на -9.11° снимка */}
+        <img
+          src="/images/rc_1-24.png"
+          alt="Дети бегут на территории лагеря"
+          className="absolute"
+          draggable={false}
+          style={{ left: u(742.4), top: u(254), width: u(425.156), height: u(429.844), zIndex: 12, clipPath: "polygon(0.27% 13.83%, 85.80% 0.27%, 99.73% 86.17%, 14.20% 99.73%)" }}
+        />
       </div>
 
       {/* рваный край (синие «горы») */}
-      <Wave id="1:16" y0={0} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Wave id="1:16" y0={0} />
+      </div>
     </section>
   );
 }
