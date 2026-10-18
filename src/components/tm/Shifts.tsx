@@ -44,7 +44,9 @@ export default function Shifts() {
           <br />
           каникулы с нами!
         </Reveal>
-        <Deco x={930} y={4014 + Y} w={228} h={230} src="/images/frag_IMG_6323_(1)_1_1-170.png" z={14} className="tm-float" />
+        {/* капибара заходит на секцию «Почему выбирают нас» (выше по макету) */}
+        <Deco x={870} y={3912 + Y} w={178} h={190} src="/images/frag_IMG_6325_(1)_1_1-169.png" z={14} className="tm-float" />
+        <Deco x={953} y={4037 + Y} w={182} h={184} src="/images/frag_IMG_6323_(1)_1_1-170.png" z={14} className="tm-float" />
         <Deco x={438} y={4224 + Y} w={117} h={87} src="/images/frag_image_144_1-176.png" z={1} mobile="show" />
 
         {/* карточки смен — точная геометрия из макета: рамки 261x379 r10, фото 232x155 r5,

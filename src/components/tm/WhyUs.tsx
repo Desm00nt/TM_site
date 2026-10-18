@@ -142,11 +142,11 @@ export default function WhyUs() {
         >
           ПОЧЕМУ РОДИТЕЛИ
         </Reveal>
-        <Hand x={87} y={2742 + Y} w={449} file="/images/texts/t_1-69.png" text="выбирают нас" z={3} />
+        <Hand x={89} y={2753 + Y} w={449} file="/images/texts/t_1-69.png" text="выбирают нас" z={3} />
         <Reveal
           as="p"
           className="tm-font-body absolute font-medium text-[#3D3D3D]"
-          style={{ left: u(109), top: u(2838 + Y), fontSize: u(20), lineHeight: u(24.4) }}
+          style={{ left: u(109), top: u(2842 + Y), fontSize: u(20), lineHeight: u(24.4) }}
         >
           Мы создаём среду, где ребёнок чувствует себя
           <br />
@@ -162,7 +162,7 @@ export default function WhyUs() {
         <Deco x={612} y={3022 + Y} w={101} h={118} src="/images/frag_image_128_1-129.png" z={4} mobile="show" />
         <Deco x={1101} y={3027 + Y} w={113} h={114} src="/images/frag_image_128_1-130.png" z={4} mobile="show" />
 
-        <Hand x={178} y={2965 + Y} w={203} file="/images/texts/t_1-72.png" text="лето, которое помнят" />
+        <Hand x={179} y={2970 + Y} w={203} file="/images/texts/t_1-72.png" text="лето, которое помнят" />
         <Deco x={177} y={2992 + Y} w={257} src="/images/decor_Vector_17_1-120.png" z={1} />
         <Deco x={515} y={3340 + Y} w={142} h={100} src="/images/frag_image_128_1-136.png" z={1} mobile="show" />
 
@@ -172,10 +172,8 @@ export default function WhyUs() {
 
         <Hand x={559} y={3741 + Y} w={155} file="/images/texts/t_1-86.png" text="хочу скорее на свечку с отрядом!" />
         <Deco x={577} y={3706 + Y} w={86} h={82} src="/images/frag_image_125_1-127.png" z={1} />
-        <Deco x={109} y={3198 + Y} w={45} src="/images/decor_Vector_18_1-131.png" z={1} />
-        <Deco x={1105} y={3188 + Y} w={57} src="/images/decor_Vector_19_1-132.png" z={1} />
-        {/* капибара заходит на секцию смен */}
-        <Deco x={838} y={3882 + Y} w={226} h={241} src="/images/frag_IMG_6325_(1)_1_1-169.png" z={12} className="tm-float" />
+        <Deco x={103} y={3198 + Y} w={57} h={614} src="/images/why_curve_left.png" z={1} />
+        <Deco x={1099} y={3188 + Y} w={69} h={523} src="/images/why_curve_right.png" z={1} />
       </div>
 
     </section>

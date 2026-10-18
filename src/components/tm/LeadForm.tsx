@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { CONTACTS, u } from "@/lib/tm";
 import { formatPhone, isPhoneValid, sendLead } from "@/lib/lead";
-import { Deco, Hand, OrangeButton, Reveal, Wave }
+import { Deco, Fig, Hand, OrangeButton, Reveal, Wave }
 from "./decor";
 import { useToast } from "@/hooks/use-toast";
 
@@ -108,7 +108,7 @@ export default function LeadForm() {
               <span style={{ fontSize: u(14), display: 'flex', alignItems: 'center', justifyContent: 'center', width: u(181), height: u(45) }}>{sending ? "ОТПРАВЛЯЕМ..." : "ОСТАВИТЬ ЗАЯВКУ"}</span>
             </OrangeButton>
           </div>
-          <p className="tm-font-body text-center font-medium text-[#D9E3F4]/80" style={{ marginTop: u(12), fontSize: u(12), lineHeight: u(15) }}>
+          <p className="tm-font-body text-center font-medium text-[#D9E3F4]/80" style={{ marginTop: u(10), fontSize: u(11), lineHeight: u(14), whiteSpace: "nowrap" }}>
             Нажимая кнопку, вы соглашаетесь с <a href="#privacy" className="underline">политикой конфиденциальности</a>
           </p>
         </form>
@@ -116,7 +116,8 @@ export default function LeadForm() {
         <Hand x={129} y={8123 + Y} w={403} file="/images/texts/t_1-145.png" text="Свяжемся с вами и поможем выбрать подходящую смену" z={3} />
 
         {/* полароид — заходит из FAQ-секции (секция без overflow-hidden, чтобы не обрезался) */}
-        <Deco x={583} y={7376 + Y} w={708} h={756} src="/images/rc_1-262.png" z={2} alt="Дети на празднике в лагере" />
+        <Fig box={[583.4, 7376.18 + Y, 708.373, 756.289]} inner={[578.653, 642.59]} rot={13} src="/images/image_180_1-262.png" fit="cover" z={2} />
+        <Fig box={[701, 7488 + Y, 484.371, 474.953]} inner={[406.228, 393.661]} rot={13} fit="cover" pos="bottom" src="/images/image_181_1-263.webp" z={3} alt="Дети на празднике в лагере" />
         <Hand x={689} y={7900 + Y} w={394} file="/images/texts/t_1-264.png" text="Увидимся в Территории мы!" z={4} />
 
         {/* каракули и стикер */}
@@ -175,7 +176,7 @@ export default function LeadForm() {
 
         <div className="relative mt-8">
           <img src="/images/frag_image_181_1-263.png" alt="Дети на празднике в лагере" className="h-auto w-full rounded-xl shadow-lg" />
-          <img src="/images/texts/t_1-264.png" alt="Увидимся в Территории мы!" className="absolute bottom-2 left-1/2 h-auto w-[62%] -translate-x-1/2" />
+          <img src="/images/texts/t_1-264.png" alt="Увидимся в Территории мы!" className="mx-auto mt-3 block h-auto w-[70%]" />
           <img src="/images/frag_image_179_1-265.png" alt="" aria-hidden className="absolute -right-2 top-3 w-10 tm-float" />
         </div>
       </div>

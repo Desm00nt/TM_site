@@ -108,7 +108,7 @@ export default function Footer() {
               <br />
               МЫ
             </p>
-            <img src="/images/texts/t_1-147.png" alt="воспоминания начинаются здесь" className="mt-1 h-auto w-[90%]" />
+            <img src="/images/texts/t_1-147.png" alt="воспоминания начинаются здесь" className="mt-1 h-auto w-[78%]" />
           </div>
         </div>
         <p className="tm-font-body mt-4 text-base font-medium text-[#3D3D3D]">
