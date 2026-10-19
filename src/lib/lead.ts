@@ -3,8 +3,10 @@
 // который пересылает её на почту организаторов. Адрес сервиса задаётся при сборке:
 //   NEXT_PUBLIC_LEAD_ENDPOINT   — URL формы, например https://formspree.io/f/xxxxxxx
 //   NEXT_PUBLIC_LEAD_ACCESS_KEY — (необязательно) ключ для Web3Forms
-export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "";
-const ACCESS_KEY = process.env.NEXT_PUBLIC_LEAD_ACCESS_KEY || "";
+// По умолчанию — Web3Forms. Access key у Web3Forms публичный по замыслу (его кладут в клиентский код),
+// он только разрешает отправку на привязанную почту.
+export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "https://api.web3forms.com/submit";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_LEAD_ACCESS_KEY || "058cf620-bb77-4a9e-bb8a-3a1c779f135f";
 
 export type LeadResult = "sent" | "stored" | "error";
 
@@ -53,6 +55,8 @@ export async function sendLead(name: string, phone: string): Promise<LeadResult>
       }),
     });
     if (!res.ok) throw new Error(String(res.status));
+    const data = await res.json().catch(() => ({}));
+    if (data && data.success === false) throw new Error("rejected");
     return "sent";
   } catch {
     store(lead);

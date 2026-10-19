@@ -2,7 +2,7 @@
 
 import { Deco, Hand, Reveal, Wave }
 from "./decor";
-import { u } from "@/lib/tm";
+import { CONTACTS, u } from "@/lib/tm";
 
 const Y = -4767;
 
@@ -106,7 +106,7 @@ export default function Moments() {
 
         <p className="tm-font-body absolute font-medium text-[#3D3D3D]" style={{ left: u(783), top: u(5798 + Y), fontSize: u(15) }}>
           Больше фото вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#256BC6]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#256BC6]">
             Вконтакте
           </a>
         </p>
@@ -141,7 +141,7 @@ export default function Moments() {
         </div>
         <p className="tm-font-body mt-6 text-center text-sm font-medium text-[#3D3D3D]">
           Больше фото вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D]">
             Вконтакте
           </a>
         </p>

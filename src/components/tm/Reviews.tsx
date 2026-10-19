@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { u } from "@/lib/tm";
+import { CONTACTS, u } from "@/lib/tm";
 import { Deco, Hand, Reveal, Wave }
 from "./decor";
 
@@ -179,7 +179,7 @@ export default function Reviews() {
 
         <p className="tm-font-body absolute font-medium text-[#F8F8F7]" style={{ left: u(696), top: u(6624 + Y), fontSize: u(15) }}>
           Больше отзывов вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#D9E3F4]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#D9E3F4]">
             Вконтакте
           </a>
         </p>
@@ -223,7 +223,7 @@ export default function Reviews() {
         </div>
         <p className="tm-font-body mt-6 px-5 text-center text-sm font-medium text-[#F8F8F7]">
           Больше отзывов вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D]">
             Вконтакте
           </a>
         </p>

@@ -125,7 +125,7 @@ export const FAQ = [
 export const CONTACTS = {
   phone: "+7(927)038-42-22",
   phoneHref: "tel:+79270384222",
-  vk: "https://vk.com/",
-  telegram: "https://t.me/",
-  max: "#",
+  vk: "https://vk.ru/territorymy",
+  telegram: "https://t.me/tmvkadre",
+  max: "" // нет ссылки — пункт скрыт; вставьте адрес, когда появится,
 };

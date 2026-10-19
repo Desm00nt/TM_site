@@ -6,12 +6,17 @@ from "./decor";
 
 const Y = -8254;
 
-const CONTACT_ROWS = [
+const ALL_ROWS = [
   { label: CONTACTS.phone, href: CONTACTS.phoneHref, icon: "/images/frag_image_186_1-284.png", iconX: 926, iconY: 8360, iconW: 42, y: 8371 },
   { label: "Вконтакте", href: CONTACTS.vk, icon: "/images/frag_image_183_1-285.png", iconX: 918, iconY: 8415, iconW: 50, y: 8421 },
   { label: "Max", href: CONTACTS.max, icon: "/images/frag_image_184_1-286.png", iconX: 923, iconY: 8461, iconW: 35, y: 8469 },
   { label: "Телеграм", href: CONTACTS.telegram, icon: "/images/frag_image_186_1-287.png", iconX: 918, iconY: 8509, iconW: 45, y: 8518 },
 ];
+
+const CONTACT_ROWS = ALL_ROWS.filter((r) => r.href).map((r) =>
+  // если у Max нет ссылки, Telegram занимает его место
+  r.label === "Телеграм" && !CONTACTS.max ? { ...r, iconY: 8460 } : r
+);
 
 export default function Footer() {
   return (
@@ -138,12 +143,14 @@ export default function Footer() {
                 Вконтакте
               </a>
             </li>
-            <li>
-              <a href={CONTACTS.max} className="flex items-center gap-2">
-                <img src="/images/frag_image_184_1-286.png" alt="" aria-hidden className="w-5" />
-                Max
-              </a>
-            </li>
+            {CONTACTS.max && (
+              <li>
+                <a href={CONTACTS.max} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                  <img src="/images/frag_image_184_1-286.png" alt="" aria-hidden className="w-5" />
+                  Max
+                </a>
+              </li>
+            )}
             <li>
               <a href={CONTACTS.telegram} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                 <img src="/images/frag_image_186_1-287.png" alt="" aria-hidden className="w-6" />
