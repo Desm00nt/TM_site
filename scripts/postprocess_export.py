@@ -7,7 +7,7 @@ src="/images/..." в JSX-атрибутах и строковых литерал
 import pathlib
 import re
 
-ROOT = pathlib.Path("/home/z/my-project/out")
+ROOT = pathlib.Path(__file__).resolve().parent.parent / "out"
 BP = "/TM_site"
 EXTS = {".html", ".js", ".css", ".txt", ".xml", ".webmanifest", ".svg", ".json"}
 

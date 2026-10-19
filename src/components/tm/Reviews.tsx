@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { u } from "@/lib/tm";
+import { CONTACTS, u } from "@/lib/tm";
 import { Deco, Hand, Reveal, Wave }
 from "./decor";
 
@@ -42,6 +42,14 @@ const BUBBLES = [
 ];
 
 /** Аватары — маска-круг 81x81 из макета + исходный кадр с точным смещением */
+const TEXT_POS: Record<string, { x: number; y: number; lines: string[] }> = {
+  "1:202": { x: 524, y: 6111, lines: ["Понравилась организация", "и атмосфера. Дочь вернулась", "более самостоятельной", "и уверенной в себе.", "Уже выбираем следующую смену."] },
+  "1:200": { x: 200, y: 6209, lines: ["Никогда не думал, что в лагере может", "быть настолько интересно. Игры,", "проекты, концерты — каждый день", "происходило что-то новое."] },
+  "1:204": { x: 810, y: 6197, lines: ["Сын ездит уже третий год", "подряд. Каждый раз возвращается", "с новыми друзьями, идеями", "и историями. Для нас это", "показатель, что ребёнку", "действительно хорошо."] },
+  "1:201": { x: 226, y: 6467, lines: ["Переживали перед", "первой поездкой,", "но уже через", "пару дней ребёнок", "звонил счастливый", "и рассказывал", "о событиях.", "Спасибо вожатым", "за внимание и заботу."] },
+  "1:203": { x: 539, y: 6454, lines: ["Больше всего понравились квесты и вечерние", "мероприятия. Очень быстро нашла друзей,", "а расставаться в конце смены вообще не хотелось."] },
+};
+
 const AVATARS = [
   { src: "/images/zhenshina_1-216.webp", rect: [610, 6201, 87, 116], circle: [612, 6209, 81, 81], flip: false, alt: "Аватар автора отзыва" },
   { src: "/images/image_172_1-223.webp", rect: [372, 6264, 124, 83], circle: [396, 6266, 81, 81], flip: false, alt: "Аватар автора отзыва" },
@@ -57,7 +65,7 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reviews" className="relative z-[3] overflow-hidden bg-[#256BC6]">
+    <section id="reviews" className="relative z-[3] overflow-x-clip bg-[#256BC6]">
       <Wave id="1:20" y0={5866} />
 
       {/* ===== DESKTOP ===== */}
@@ -69,34 +77,48 @@ export default function Reviews() {
         >
           ОТЗЫВЫ РОДИТЕЛЕЙ
         </Reveal>
-        <Hand x={95} y={6057 + Y} w={237} file="/images/texts/t_1-70.png" text="и детей" />
+        <Hand x={95} y={6067 + Y} w={237} file="/images/texts/t_1-70.png" text="и детей" />
         <Hand x={732} y={5958 + Y} w={201} file="/images/texts/t_1-143.png" text="впечатления из первых уст" />
         <Deco x={1031} y={5872 + Y} w={206} h={218} src="/images/frag_IMG_6316_(1)_1_1-217.png" z={6} className="tm-float" />
 
+        {/* стикер шиба — заходит на секцию «Моменты» выше */}
+        <Deco x={411} y={5722 + Y} w={218} h={248} src="/images/frag_IMG_6322_1_1-205.png" z={6} />
+
         {/* оранжевые волнистые линии по краям */}
-        <Deco x={-89} y={6128 + Y} w={231} src="/images/decor_Vector_28_1-134.png" z={1} />
-        <Deco x={1016} y={6235 + Y} w={317} src="/images/decor_Vector_27_1-133.png" z={1} />
+        <Deco x={0} y={6128 + Y} w={142} h={360} src="/images/rev_curve_left.png" z={1} />
+        <Deco x={1016} y={6235 + Y} w={264} h={372} src="/images/rev_curve_right.png" z={1} />
 
         {/* пузыри отзывов — точные bbox и радиусы из макета, заливка #D9E3F4 */}
         <div className="absolute inset-0" style={{ zIndex: 4 }}>
           {BUBBLES.map((b) => (
             <div
               key={b.id}
-              className="tm-font-body absolute overflow-hidden bg-[#D9E3F4] font-medium text-[#3D3D3D]"
+              className="absolute bg-[#D9E3F4]"
               style={{
                 left: u(b.x),
                 top: u(b.y + Y),
                 width: u(b.w),
                 height: u(b.h),
                 borderRadius: b.radius.includes(" ") ? b.radius.split(" ").map((r) => u(parseFloat(r))).join(" ") : u(parseFloat(b.radius)),
-                fontSize: u(14),
-                lineHeight: u(17.5),
-                padding: u(18),
               }}
-            >
-              {b.text}
-            </div>
+            />
           ))}
+          {BUBBLES.map((b) => {
+            const t = TEXT_POS[b.id];
+            return (
+              <p
+                key={b.id + "-t"}
+                className="tm-font-body absolute whitespace-nowrap font-medium text-[#3D3D3D]"
+                style={{ left: u(t.x), top: u(t.y + Y), fontSize: u(13), letterSpacing: u(-0.13), lineHeight: "normal" }}
+              >
+                {t.lines.map((l, i) => (
+                  <span key={i} className="block">
+                    {l}
+                  </span>
+                ))}
+              </p>
+            );
+          })}
         </div>
 
         {/* аватары — круги 81x81 в точных позициях маски из макета */}
@@ -141,23 +163,23 @@ export default function Reviews() {
         <button
           onClick={() => scrollBy(-1)}
           aria-label="Предыдущие отзывы"
-          className="absolute z-[6] flex items-center justify-center rounded-xl bg-[#D9D9D9] transition-all hover:bg-[#c8c8c8] hover:scale-105"
-          style={{ left: u(74), top: u(6322 + Y), width: u(65), height: u(53) }}
+          className="absolute z-[6] flex items-center justify-center rounded-full bg-[#D9E3F4]/25 transition-all hover:bg-[#D9E3F4]/40 hover:scale-105"
+          style={{ left: u(66), top: u(6310 + Y), width: u(64), height: u(64) }}
         >
-          <img src="/images/decor_arrow_left_19-64.png" alt="" aria-hidden className="h-auto" style={{ width: u(43) }} />
+          <img src="/images/decor_arrow_left_19-64.png" alt="" aria-hidden className="h-auto" style={{ width: u(34) }} />
         </button>
         <button
           onClick={() => scrollBy(1)}
           aria-label="Следующие отзывы"
-          className="absolute z-[6] flex items-center justify-center rounded-xl bg-[#D9D9D9] transition-all hover:bg-[#c8c8c8] hover:scale-105"
-          style={{ left: u(1120), top: u(6316 + Y), width: u(65), height: u(53) }}
+          className="absolute z-[6] flex items-center justify-center rounded-full bg-[#D9E3F4]/25 transition-all hover:bg-[#D9E3F4]/40 hover:scale-105"
+          style={{ left: u(1115), top: u(6310 + Y), width: u(64), height: u(64) }}
         >
-          <img src="/images/decor_arrow_right_19-63.png" alt="" aria-hidden className="h-auto" style={{ width: u(51) }} />
+          <img src="/images/decor_arrow_right_19-63.png" alt="" aria-hidden className="h-auto" style={{ width: u(38) }} />
         </button>
 
         <p className="tm-font-body absolute font-medium text-[#F8F8F7]" style={{ left: u(696), top: u(6624 + Y), fontSize: u(15) }}>
           Больше отзывов вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#D9E3F4]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D] transition-colors hover:text-[#D9E3F4]">
             Вконтакте
           </a>
         </p>
@@ -201,7 +223,7 @@ export default function Reviews() {
         </div>
         <p className="tm-font-body mt-6 px-5 text-center text-sm font-medium text-[#F8F8F7]">
           Больше отзывов вы можете найти у нас в группе{" "}
-          <a href="https://vk.com/" target="_blank" rel="noreferrer" className="text-[#EC812D]">
+          <a href={CONTACTS.vk} target="_blank" rel="noreferrer" className="text-[#EC812D]">
             Вконтакте
           </a>
         </p>

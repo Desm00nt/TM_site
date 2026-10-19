@@ -6,12 +6,17 @@ from "./decor";
 
 const Y = -8254;
 
-const CONTACT_ROWS = [
+const ALL_ROWS = [
   { label: CONTACTS.phone, href: CONTACTS.phoneHref, icon: "/images/frag_image_186_1-284.png", iconX: 926, iconY: 8360, iconW: 42, y: 8371 },
   { label: "Вконтакте", href: CONTACTS.vk, icon: "/images/frag_image_183_1-285.png", iconX: 918, iconY: 8415, iconW: 50, y: 8421 },
   { label: "Max", href: CONTACTS.max, icon: "/images/frag_image_184_1-286.png", iconX: 923, iconY: 8461, iconW: 35, y: 8469 },
   { label: "Телеграм", href: CONTACTS.telegram, icon: "/images/frag_image_186_1-287.png", iconX: 918, iconY: 8509, iconW: 45, y: 8518 },
 ];
+
+const CONTACT_ROWS = ALL_ROWS.filter((r) => r.href).map((r) =>
+  // если у Max нет ссылки, Telegram занимает его место
+  r.label === "Телеграм" && !CONTACTS.max ? { ...r, iconY: 8460 } : r
+);
 
 export default function Footer() {
   return (
@@ -21,7 +26,7 @@ export default function Footer() {
       {/* ===== DESKTOP ===== */}
       <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(478) }}>
         {/* логотип и название */}
-        <Deco x={108} y={8346 + Y} w={68} src="/images/image_212_9-51.png" z={2} />
+        <Deco x={108} y={8346 + Y} w={68} src="/images/frag_image_212_9-51.png" z={2} />
         <Reveal
           as="p"
           className="tm-font-head absolute font-bold text-[#256BC6]"
@@ -90,7 +95,7 @@ export default function Footer() {
           ГК «Регина», Мамадыш
         </p>
 
-        <a href="#" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
+        <a href="#privacy" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
           Политика конфиденциальности
         </a>
         <a href="#top" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8676 + Y), fontSize: u(15) }}>
@@ -101,14 +106,14 @@ export default function Footer() {
       {/* ===== MOBILE ===== */}
       <div className="px-5 pb-10 pt-8 md:hidden">
         <div className="flex items-start gap-3">
-          <img src="/images/image_212_9-51.png" alt="Логотип Территория МЫ" className="h-14 w-auto" />
+          <img src="/images/frag_image_212_9-51.png" alt="Логотип Территория МЫ" className="h-14 w-auto" />
           <div>
             <p className="tm-font-head text-3xl font-bold leading-tight text-[#256BC6]">
               ТЕРРИТОРИЯ
               <br />
               МЫ
             </p>
-            <img src="/images/texts/t_1-147.png" alt="воспоминания начинаются здесь" className="mt-1 h-auto w-[90%]" />
+            <img src="/images/texts/t_1-147.png" alt="воспоминания начинаются здесь" className="mt-1 h-auto w-[78%]" />
           </div>
         </div>
         <p className="tm-font-body mt-4 text-base font-medium text-[#3D3D3D]">
@@ -138,12 +143,14 @@ export default function Footer() {
                 Вконтакте
               </a>
             </li>
-            <li>
-              <a href={CONTACTS.max} className="flex items-center gap-2">
-                <img src="/images/frag_image_184_1-286.png" alt="" aria-hidden className="w-5" />
-                Max
-              </a>
-            </li>
+            {CONTACTS.max && (
+              <li>
+                <a href={CONTACTS.max} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                  <img src="/images/frag_image_184_1-286.png" alt="" aria-hidden className="w-5" />
+                  Max
+                </a>
+              </li>
+            )}
             <li>
               <a href={CONTACTS.telegram} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                 <img src="/images/frag_image_186_1-287.png" alt="" aria-hidden className="w-6" />
@@ -163,7 +170,7 @@ export default function Footer() {
             <img src="/images/frag_image_185_1-288.png" alt="" aria-hidden className="w-4" />
             ГК «Регина», Мамадыш
           </p>
-          <p className="pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</p>
+          <a href="#privacy" className="block pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</a>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Статическая сборка сайта для GitHub Pages (репозиторий Desm00nt/TM_site).
 set -e
-cd /home/z/my-project
+cd "$(dirname "$0")/.."
 
 API_BACKUP=/tmp/tm_api_backup
 

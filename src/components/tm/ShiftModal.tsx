@@ -131,10 +131,9 @@ export default function ShiftModal({ shift, onClose }: { shift: Shift | null; on
             <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <span className="tm-font-body block text-sm font-semibold text-[#256BC6]">Стоимость смены</span>
-                <div className="flex items-baseline gap-2">
-                  <img src="/images/texts/t_1-300.png" alt={`Стоимость ${shift.price} рублей`} className="mt-1 h-auto w-[110px] md:w-[130px]" />
-                  <span className="tm-font-head text-base font-bold text-[#EC812D]">₽</span>
-                </div>
+                <span className="tm-font-hand mt-1 block text-[34px] leading-none text-[#EC812D] md:text-[40px]">
+                  {shift.price}р.
+                </span>
               </div>
               <OrangeButton href="#form" size="lg" className="!py-3">
                 <span className="text-xs md:text-base">ОСТАВИТЬ ЗАЯВКУ</span>

@@ -142,11 +142,11 @@ export default function WhyUs() {
         >
           ПОЧЕМУ РОДИТЕЛИ
         </Reveal>
-        <Hand x={87} y={2742 + Y} w={449} file="/images/texts/t_1-69.png" text="выбирают нас" z={3} />
+        <Hand x={89} y={2753 + Y} w={449} file="/images/texts/t_1-69.png" text="выбирают нас" z={3} />
         <Reveal
           as="p"
           className="tm-font-body absolute font-medium text-[#3D3D3D]"
-          style={{ left: u(109), top: u(2838 + Y), fontSize: u(20), lineHeight: u(24.4) }}
+          style={{ left: u(109), top: u(2842 + Y), fontSize: u(20), lineHeight: u(24.4) }}
         >
           Мы создаём среду, где ребёнок чувствует себя
           <br />
@@ -162,7 +162,7 @@ export default function WhyUs() {
         <Deco x={612} y={3022 + Y} w={101} h={118} src="/images/frag_image_128_1-129.png" z={4} mobile="show" />
         <Deco x={1101} y={3027 + Y} w={113} h={114} src="/images/frag_image_128_1-130.png" z={4} mobile="show" />
 
-        <Hand x={178} y={2965 + Y} w={203} file="/images/texts/t_1-72.png" text="лето, которое помнят" />
+        <Hand x={179} y={2970 + Y} w={203} file="/images/texts/t_1-72.png" text="лето, которое помнят" />
         <Deco x={177} y={2992 + Y} w={257} src="/images/decor_Vector_17_1-120.png" z={1} />
         <Deco x={515} y={3340 + Y} w={142} h={100} src="/images/frag_image_128_1-136.png" z={1} mobile="show" />
 
@@ -172,53 +172,10 @@ export default function WhyUs() {
 
         <Hand x={559} y={3741 + Y} w={155} file="/images/texts/t_1-86.png" text="хочу скорее на свечку с отрядом!" />
         <Deco x={577} y={3706 + Y} w={86} h={82} src="/images/frag_image_125_1-127.png" z={1} />
-        <Deco x={109} y={3198 + Y} w={45} src="/images/decor_Vector_18_1-131.png" z={1} />
-        <Deco x={1105} y={3188 + Y} w={57} src="/images/decor_Vector_19_1-132.png" z={1} />
-        {/* капибара заходит на секцию смен */}
-        <Deco x={838} y={3882 + Y} w={226} h={241} src="/images/frag_IMG_6325_(1)_1_1-169.png" z={12} className="tm-float" />
+        <Deco x={103} y={3198 + Y} w={57} h={614} src="/images/why_curve_left.png" z={1} />
+        <Deco x={1099} y={3188 + Y} w={69} h={523} src="/images/why_curve_right.png" z={1} />
       </div>
 
-      {/* ===== MOBILE ===== */}
-      <div className="px-5 py-12 md:hidden">
-        <Reveal as="h2" className="tm-font-head text-4xl font-bold leading-tight text-[#3D3D3D]">
-          ПОЧЕМУ РОДИТЕЛИ
-        </Reveal>
-        <img src="/images/texts/t_1-69.png" alt="выбирают нас" className="mt-1 h-auto w-[70%]" />
-        <Reveal as="p" className="tm-font-body mt-4 text-base font-medium text-[#3D3D3D]">
-          Мы создаём среду, где ребёнок чувствует себя важным, раскрывает таланты и находит друзей на всю жизнь, а родители могут быть спокойны.
-        </Reveal>
-
-        <div className="mt-6 flex justify-center gap-1">
-          <img src="/images/frag_telegram-cloud-photo-siz_1-118.png" alt="Дети в лагере" className="h-auto w-[38%] -rotate-6 shadow-md" />
-          <img src="/images/frag_image_118_1-119.png" alt="Отряд в лагере" className="h-auto w-[34%] rotate-3 shadow-md" />
-          <img src="/images/frag_image_117_1-117.png" alt="Выступление" className="h-auto w-[40%] -rotate-2 shadow-md" />
-        </div>
-
-        <img src="/images/texts/t_1-72.png" alt="лето, которое помнят" className="mt-8 h-auto w-[52%]" />
-
-        <div className="mt-6 flex flex-col gap-8">
-          {FEATURES.map((f) => (
-            <Reveal key={f.title} className="flex gap-3">
-              <img src={f.icon} alt="" aria-hidden className="h-10 w-10 shrink-0 object-contain" />
-              <div>
-                <h3 className="tm-font-head text-lg font-bold leading-snug text-[#3D3D3D]">{f.title}</h3>
-                <p className="tm-font-body mt-1 text-sm font-medium leading-snug text-[#3D3D3D]">
-                  {f.text.replace(/\n/g, " ")}
-                </p>
-                <div className="mt-3 flex items-end gap-2">
-                  <img src={f.photo} alt="" aria-hidden className="h-auto w-[46%] rounded-lg shadow" />
-                  <div className="flex items-center gap-1.5">
-                    <img src={f.statImg} alt={f.stat} className="h-6 w-auto" />
-                    <span className="tm-font-body text-[11px] font-medium leading-tight text-[#3D3D3D]">
-                      {f.statText.replace(/\n/g, " ")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

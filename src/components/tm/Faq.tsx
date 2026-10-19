@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FAQ, u } from "@/lib/tm";
-import { Deco, Hand, OrangeButton, Reveal, Wave }
+import { Deco, Fig, Hand, OrangeButton, Reveal, Wave }
 from "./decor";
 
 const Y = -6689;
@@ -17,9 +17,9 @@ export default function Faq() {
       {/* ===== DESKTOP ===== */}
       <div className="relative hidden md:block [container-type:inline-size]" style={{ height: u(758) }}>
         {/* большие знаки вопроса — точные bbox из макета, без искажения прозрачности */}
-        <Deco x={108} y={6793 + Y} w={510} h={642} src="/images/rc_1-209.png" z={0} />
-        <Deco x={725} y={6867 + Y} w={397} h={513} src="/images/rc_1-210.png" z={0} />
-        <Deco x={520} y={6906 + Y} w={285} h={365} src="/images/rc_1-211.png" z={0} />
+        <Fig box={[108.01, 6793.4 + Y, 509.79, 642.439]} inner={[360.892, 561.2]} rot={-17.08} src="/images/image_190_1-209.png" crop={{ h: 100, l: -65.37, t: 0, w: 233.31 }} opacity={0.3} z={0} />
+        <Fig box={[725, 6867 + Y, 396.623, 512.854]} inner={[292.025, 454.109]} rot={14.53} src="/images/image_190_1-209.png" crop={{ h: 100, l: -65.37, t: 0, w: 233.31 }} opacity={0.3} z={0} />
+        <Fig box={[520, 6906 + Y, 284.879, 365.307]} inner={[207.068, 321.998]} rot={-15.34} src="/images/image_190_1-209.png" crop={{ h: 100, l: -65.37, t: 0, w: 233.31 }} opacity={0.3} z={0} />
 
         <Reveal
           as="h2"
@@ -31,7 +31,7 @@ export default function Faq() {
         <Deco x={632} y={6811 + Y} w={57} h={74} src="/images/frag_image_177_1-254.png" z={4} mobile="show" />
         <Hand x={739} y={6829 + Y} w={272} file="/images/texts/t_1-144.png" text="часто спрашивают" z={3} />
         <Hand x={1069} y={6826 + Y} w={100} file="/images/texts/t_1-85.png" text="нажми, чтобы узнать ответ" z={3} />
-        <Deco x={1097} y={6857 + Y} w={77} h={72} src="/images/frag_image_164_1-253.png" z={3} />
+        <Deco x={1097} y={6857 + Y} w={77} h={72} src="/images/frag_image_164_1-253.png" z={3} rot={125} />
 
         {/* аккордеон — строки 1064x67 c шагом 97, радиус 30, как во Figma */}
         <div className="absolute z-[3]" style={{ left: u(108), top: u(6925 + Y), width: u(1064) }}>
@@ -40,7 +40,7 @@ export default function Faq() {
             return (
               <div
                 key={item.q}
-                className="mb-0 overflow-hidden bg-[#F8F8F7] transition-all duration-300"
+                className="mb-0 overflow-hidden bg-[#F8F8F7]/75 transition-all duration-300"
                 style={{
                   borderRadius: u(30),
                   marginBottom: u(30),

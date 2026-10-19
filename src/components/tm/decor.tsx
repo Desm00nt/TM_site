@@ -117,6 +117,137 @@ export function SpecList({
   );
 }
 
+
+/** Перевод пикселей мобильного макета (ширина 402) в cqw */
+export const um = (n: number) => `${((n * 100) / 402).toFixed(4)}cqw`;
+
+type Box = [number, number, number, number];
+type Crop = { h: number; l: number; t: number; w: number };
+
+/**
+ * Элемент Figma «как есть»: bbox узла [left, top, w, h], собственный размер inner [w, h]
+ * (если узел повёрнут — bbox больше inner), поворот rot (deg), опциональная обрезка
+ * исходника (проценты из Figma: высота/слева/сверху/ширина картинки внутри узла).
+ * unit — функция перевода пикселей макета в CSS-длину (u для 1280, um для 402).
+ */
+export function Fig({
+  box,
+  inner,
+  rot = 0,
+  flipY = false,
+  src,
+  crop,
+  alt = "",
+  z = 1,
+  opacity,
+  radius,
+  className = "",
+  unit = u,
+  fit = "fill",
+  pos,
+  shadow,
+  style,
+}: {
+  box: Box;
+  inner?: [number, number];
+  rot?: number;
+  flipY?: boolean;
+  src: string;
+  crop?: Crop;
+  alt?: string;
+  z?: number;
+  opacity?: number;
+  radius?: number;
+  className?: string;
+  unit?: (n: number) => string;
+  fit?: "fill" | "cover";
+  /** object-position (например "bottom") */
+  pos?: string;
+  /** тень в px макета: [x, y, blur, color] */
+  shadow?: [number, number, number, string];
+  style?: CSSProperties;
+}) {
+  const [l, t, W, H] = box;
+  const [w, h] = inner ?? [W, H];
+  const tf = [rot ? `rotate(${rot}deg)` : "", flipY ? "scaleY(-1)" : ""].filter(Boolean).join(" ");
+  return (
+    <div
+      aria-hidden={alt === ""}
+      className={`absolute pointer-events-none select-none ${className}`}
+      style={{
+        left: unit(l),
+        top: unit(t),
+        width: unit(W),
+        height: unit(H),
+        zIndex: z,
+        // тень Figma повторяет контур (альфа) картинки, поэтому drop-shadow, а не box-shadow
+        filter: shadow ? `drop-shadow(${unit(shadow[0])} ${unit(shadow[1])} ${unit(shadow[2] / 2)} ${shadow[3]})` : undefined,
+        ...style,
+      }}
+    >
+      <div
+        className="absolute overflow-hidden"
+        style={{
+          left: unit((W - w) / 2),
+          top: unit((H - h) / 2),
+          width: unit(w),
+          height: unit(h),
+          transform: tf || undefined,
+          opacity,
+          borderRadius: radius ? unit(radius) : undefined,
+        }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          draggable={false}
+          className="absolute max-w-none"
+          style={
+            crop
+              ? { height: `${crop.h}%`, left: `${crop.l}%`, top: `${crop.t}%`, width: `${crop.w}%` }
+              : { inset: 0, width: "100%", height: "100%", objectFit: fit === "cover" ? "cover" : "fill", objectPosition: pos }
+          }
+        />
+      </div>
+    </div>
+  );
+}
+
+/** Повёрнутый «живой» текст: bbox узла [left, top, w, h], текст центрируется и поворачивается */
+export function FigText({
+  box,
+  rot = 0,
+  z = 3,
+  className = "",
+  style,
+  children,
+  unit = u,
+}: {
+  box: Box;
+  rot?: number;
+  z?: number;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  unit?: (n: number) => string;
+}) {
+  const [l, t, W, H] = box;
+  return (
+    <div
+      className="absolute flex items-center justify-center"
+      style={{ left: unit(l), top: unit(t), width: unit(W), height: unit(H), zIndex: z }}
+    >
+      <div
+        className={`flex-none whitespace-nowrap ${className}`}
+        style={{ transform: rot ? `rotate(${rot}deg)` : undefined, ...style }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 /** Рукописная надпись (PNG-экспорт из Figma, шрифт Mariinavo) */
 export function Hand({
   x,
