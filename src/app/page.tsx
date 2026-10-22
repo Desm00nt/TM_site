@@ -126,11 +126,13 @@ export default function Home() {
         <WhyUs />
         <Shifts />
       </div>
-      <Moments />
-      <Reviews />
-      <Faq />
-      <LeadForm />
-      <Footer />
+      <div className="max-md:hidden">
+        <Moments />
+        <Reviews />
+        <Faq />
+        <LeadForm />
+        <Footer />
+      </div>
       <PrivacyModal />
     </main>
   );

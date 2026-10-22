@@ -68,8 +68,8 @@ export default function Faq() {
                   style={{ maxHeight: isOpen ? u(200) : "0px", opacity: isOpen ? 1 : 0 }}
                 >
                   <p
-                    className="tm-font-body pl-[3.7cqw] pr-[3.3cqw] pb-[1.8cqw] font-medium text-[#3D3D3D]"
-                    style={{ fontSize: u(17), lineHeight: u(24) }}
+                    className="tm-font-body m-0 font-medium text-[#3D3D3D]"
+                    style={{ fontSize: u(20), lineHeight: u(24.4), paddingLeft: u(39), paddingRight: u(68), paddingBottom: u(14), marginTop: u(-4) }}
                   >
                     {item.a}
                   </p>

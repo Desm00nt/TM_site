@@ -50,7 +50,7 @@ const TEXT_POS: Record<string, { x: number; y: number; lines: string[] }> = {
   "1:203": { x: 539, y: 6454, lines: ["Больше всего понравились квесты и вечерние", "мероприятия. Очень быстро нашла друзей,", "а расставаться в конце смены вообще не хотелось."] },
 };
 
-const AVATARS = [
+export const AVATARS = [
   { src: "/images/zhenshina_1-216.webp", rect: [610, 6201, 87, 116], circle: [612, 6209, 81, 81], flip: false, alt: "Аватар автора отзыва" },
   { src: "/images/image_172_1-223.webp", rect: [372, 6264, 124, 83], circle: [396, 6266, 81, 81], flip: false, alt: "Аватар автора отзыва" },
   { src: "/images/image_173_1-226.webp", rect: [351, 6365, 98, 147], circle: [360, 6398, 81, 81], flip: false, alt: "Аватар автора отзыва" },
