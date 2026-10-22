@@ -95,9 +95,9 @@ export default function Footer() {
           ГК «Регина», Мамадыш
         </p>
 
-        <a href="#privacy" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
+        <span className="tm-font-body absolute font-medium text-[#3D3D3D]" style={{ left: u(855), top: u(8641 + Y), fontSize: u(15) }}>
           Политика конфиденциальности
-        </a>
+        </span>
         <a href="#top" className="tm-font-body absolute font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]" style={{ left: u(855), top: u(8676 + Y), fontSize: u(15) }}>
           Дизайн сайта
         </a>
@@ -170,7 +170,7 @@ export default function Footer() {
             <img src="/images/frag_image_185_1-288.png" alt="" aria-hidden className="w-4" />
             ГК «Регина», Мамадыш
           </p>
-          <a href="#privacy" className="block pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</a>
+          <span className="block pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</span>
         </div>
       </div>
     </footer>

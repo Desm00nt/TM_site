@@ -109,7 +109,7 @@ export default function LeadForm() {
             </OrangeButton>
           </div>
           <p className="tm-font-body text-center font-medium text-[#D9E3F4]/80" style={{ marginTop: u(10), fontSize: u(11), lineHeight: u(14), whiteSpace: "nowrap" }}>
-            Нажимая кнопку, вы соглашаетесь с <a href="#privacy" className="underline">политикой конфиденциальности</a>
+            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
           </p>
         </form>
 
@@ -169,7 +169,7 @@ export default function LeadForm() {
             </OrangeButton>
           </div>
           <p className="tm-font-body mt-3 text-center text-xs font-medium text-[#D9E3F4]/80">
-            Нажимая кнопку, вы соглашаетесь с <a href="#privacy" className="underline">политикой конфиденциальности</a>
+            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
           </p>
         </form>
         <img src="/images/texts/t_1-145.png" alt="Свяжемся с вами и поможем выбрать подходящую смену" className="mx-auto mt-6 h-auto w-[80%]" />
