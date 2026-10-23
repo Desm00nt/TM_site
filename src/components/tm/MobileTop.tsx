@@ -355,13 +355,18 @@ export default function MobileTop() {
       <Mi src="/images/decor_Vector_4_1-38.png" x={107} y={312} w={125} z={5} />
       <Mi src="/images/frag_image_144_1-39.png" x={297} y={295} w={52} rot={10} z={5} />
 
-      <Mi src="/images/frag_image_84_1-23.png" x={74} y={349} w={262} rot={-9.11} z={6} />
-      <div
-        className="absolute overflow-hidden"
-        style={{ left: um(93), top: um(366), width: um(224), height: um(228), transform: "rotate(-9.11deg)", zIndex: 7 }}
-      >
-        <img src="/images/obschee_foto_1-24.webp" alt="Дети бегут на территории лагеря" className="h-full w-full object-cover" />
-      </div>
+      {/* полароид: та же геометрия, что на десктопе (рамка +5.727°, фото — рендер узла с обрезкой по контуру), масштаб ≈ 0.61 */}
+      <Mi src="/images/frag_image_84_1-23.png" x={49} y={323} w={314} h={314} rot={5.727} z={6} />
+      <Mi
+        src="/images/rc_1-24.png"
+        alt="Дети бегут на территории лагеря"
+        x={77}
+        y={350}
+        w={258}
+        h={261}
+        z={7}
+        style={{ clipPath: "polygon(0.27% 13.83%, 85.80% 0.27%, 99.73% 86.17%, 14.20% 99.73%)" }}
+      />
 
       <a
         href="#form-m"
