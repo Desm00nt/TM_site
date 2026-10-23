@@ -471,7 +471,7 @@ export default function MobileTop() {
       <Mt x={31} y={4696} size={14.25} lh={17.4} color={LIGHT} z={4} w={257}>
         {"Каждая смена - это новая история, насыщенная событиями, друзьями и открытиями."}
       </Mt>
-      <Ht x={278} y={4747} size={9.5} lh={12} color={LIGHT} rot={-8} w={90}>{"выберите свои\nканикулы с нами!"}</Ht>
+      <Ht x={278} y={4747} size={9.5} lh={12} color={ORANGE} rot={-8} w={90}>{"выберите свои\nканикулы с нами!"}</Ht>
       <Mi src="/images/frag_IMG_6325_(1)_1_1-169.png" x={262} y={4540} w={117} h={125} z={12} className="tm-float" />
       <Mi src="/images/frag_IMG_6323_(1)_1_1-170.png" x={312} y={4631} w={105} h={105} z={6} className="tm-float" />
 
