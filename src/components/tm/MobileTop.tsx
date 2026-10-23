@@ -254,7 +254,7 @@ export default function MobileTop() {
   const s2 = Math.max(0, g1 - 40); // слот 2 уезжает вниз, если первый отзыв длинный
   const g2 = slot2 ? Math.max(0, h2 - 80) : 0;
   const dR = s2 + g2;
-  const rowOpenH = open !== null ? 51 + ah + 10.5 : 50;
+  const rowOpenH = open !== null ? 47 + ah + 10.5 : 50;
   const dF = open !== null ? rowOpenH - 50 : 0;
   const R = (y: number) => y + (y >= 7340 ? dR : 0); // y после блока отзывов
   const F = (y: number) => R(y) + (y >= 7930 ? dF : 0); // y после блока вопросов
@@ -471,7 +471,7 @@ export default function MobileTop() {
       <Mt x={31} y={4696} size={14.25} lh={17.4} color={LIGHT} z={4} w={257}>
         {"Каждая смена - это новая история, насыщенная событиями, друзьями и открытиями."}
       </Mt>
-      <Ht x={278} y={4747} size={9.5} lh={12} color={LIGHT} rot={-8} w={90}>{"выберите свои\nканикулы с нами!"}</Ht>
+      <Ht x={278} y={4747} size={9.5} lh={12} color={ORANGE} rot={-8} w={90}>{"выберите свои\nканикулы с нами!"}</Ht>
       <Mi src="/images/frag_IMG_6325_(1)_1_1-169.png" x={262} y={4540} w={117} h={125} z={12} className="tm-float" />
       <Mi src="/images/frag_IMG_6323_(1)_1_1-170.png" x={312} y={4631} w={105} h={105} z={6} className="tm-float" />
 
@@ -607,6 +607,7 @@ export default function MobileTop() {
             className="absolute overflow-hidden bg-[#F8F8F7]/75 transition-[height] duration-300"
             style={{ left: um(r.x), top: um(top), width: um(358), height: um(hh), borderRadius: um(25), zIndex: 3 }}
           >
+            <div className="absolute left-0 top-0 w-full bg-[#EC812D] transition-opacity duration-300" style={{ height: um(42), borderRadius: um(25), opacity: isOpen ? 1 : 0 }} />
             <button
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
@@ -616,14 +617,14 @@ export default function MobileTop() {
             />
             <p
               className="tm-font-body pointer-events-none absolute m-0 flex items-center font-medium"
-              style={{ left: um(r.tx - r.x), top: 0, width: um(r.tw + 6), height: um(50), fontSize: um(15), lineHeight: um(18.3), letterSpacing: um(-0.15), color: DARK }}
+              style={{ left: um(r.tx - r.x), top: 0, width: um(r.tw + 6), height: um(isOpen ? 42 : 50), fontSize: um(15), lineHeight: um(18.3), letterSpacing: um(-0.15), color: isOpen ? "#F8F8F8" : DARK }}
             >
               {item.q}
             </p>
             <span
               aria-hidden
-              className="pointer-events-none absolute text-[#256BC6] transition-transform duration-300"
-              style={{ left: um(r.px - r.x), top: um(15), width: um(20), height: um(20), transform: isOpen ? "rotate(45deg)" : "none" }}
+              className={`pointer-events-none absolute transition-transform duration-300 ${isOpen ? "text-[#F8F8F8]" : "text-[#256BC6]"}`}
+              style={{ left: um(r.px - r.x), top: um(isOpen ? 11 : 15), width: um(20), height: um(20), transform: isOpen ? "rotate(45deg)" : "none" }}
             >
               <span className="absolute left-0 w-full rounded bg-current" style={{ top: "50%", height: um(1.5), marginTop: um(-0.75) }} />
               <span className="absolute top-0 h-full rounded bg-current" style={{ left: "50%", width: um(1.5), marginLeft: um(-0.75) }} />
@@ -633,7 +634,7 @@ export default function MobileTop() {
                 aRefs.current[i] = el;
               }}
               className="tm-font-body absolute m-0 font-medium"
-              style={{ left: um(r.tx - r.x), top: um(51), width: um(300), fontSize: um(15), lineHeight: um(18.3), letterSpacing: um(-0.15), color: DARK, opacity: isOpen ? 1 : 0 }}
+              style={{ left: um(r.tx - r.x), top: um(47), width: um(300), fontSize: um(15), lineHeight: um(18.3), letterSpacing: um(-0.15), color: DARK, opacity: isOpen ? 1 : 0 }}
             >
               {item.a}
             </p>

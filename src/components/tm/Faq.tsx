@@ -50,12 +50,12 @@ export default function Faq() {
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="tm-font-body flex w-full items-center justify-between pl-[3.7cqw] pr-[3.3cqw] py-0 text-left font-medium text-[#3D3D3D] transition-colors hover:text-[#256BC6]"
-                  style={{ fontSize: u(20), lineHeight: u(24.4), height: u(67) }}
+                  className={`tm-font-body flex w-full items-center justify-between pr-[3.3cqw] py-0 text-left font-medium transition-colors ${isOpen ? "bg-[#EC812D] text-[#F8F8F8]" : "text-[#3D3D3D] hover:text-[#256BC6]"}`}
+                  style={{ fontSize: u(20), lineHeight: u(24.4), height: isOpen ? u(56) : u(67), paddingLeft: u(40), borderRadius: u(30), letterSpacing: u(-0.2) }}
                 >
                   <span>{item.q}</span>
                   <span
-                    className="relative ml-4 inline-flex shrink-0 items-center justify-center text-[#256BC6] transition-transform duration-300"
+                    className={`relative ml-4 inline-flex shrink-0 items-center justify-center transition-transform duration-300 ${isOpen ? "text-[#F8F8F8]" : "text-[#256BC6]"}`}
                     style={{ width: u(30), height: u(30), transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
                     aria-hidden
                   >
@@ -65,11 +65,11 @@ export default function Faq() {
                 </button>
                 <div
                   className="overflow-hidden transition-[max-height,opacity] duration-300"
-                  style={{ maxHeight: isOpen ? u(200) : "0px", opacity: isOpen ? 1 : 0 }}
+                  style={{ maxHeight: isOpen ? u(240) : "0px", opacity: isOpen ? 1 : 0 }}
                 >
                   <p
                     className="tm-font-body m-0 font-medium text-[#3D3D3D]"
-                    style={{ fontSize: u(20), lineHeight: u(24.4), paddingLeft: u(39), paddingRight: u(68), paddingBottom: u(14), marginTop: u(-4) }}
+                    style={{ fontSize: u(20), lineHeight: u(24.4), paddingLeft: u(40), paddingRight: u(68), paddingBottom: u(14), marginTop: u(7), letterSpacing: u(-0.2) }}
                   >
                     {item.a}
                   </p>
