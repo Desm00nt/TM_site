@@ -505,10 +505,10 @@ export default function MobileTop() {
       <Mt x={70} y={5755} size={11.5} lh={22} z={5} style={{ whiteSpace: "pre", letterSpacing: um(-0.2) }}>{shift.ages.join("\n")}</Mt>
 
       {/* что входит */}
-      <Mi src="/images/svc_living.png" x={43} y={5862} w={59} h={67} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_food.png" x={144} y={5868} w={71} h={67} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_bus.png" x={35} y={5984} w={74} h={59} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_med.png" x={151} y={5972} w={56} h={65} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_living.png" x={43} y={5863.5} w={59} h={64} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_food.png" x={147} y={5872} w={65} h={59} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_bus.png" x={35.5} y={5993.5} w={73} h={40} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_med.png" x={152} y={5974.5} w={54} h={60} z={4} style={{ objectFit: "contain" }} />
       <Mt x={31} y={5929} size={12} lh={14.65} color={LIGHT} z={4} w={82}>{"Проживание в ГК Регина"}</Mt>
       <Mt x={148} y={5929} size={12} lh={14.65} color={LIGHT} z={4} w={63}>{"5-разовое питание"}</Mt>
       <Mt x={41} y={6037} size={12} lh={14.65} color={LIGHT} z={4}>Трансфер</Mt>
