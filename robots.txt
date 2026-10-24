@@ -1,0 +1,5 @@
+# Сайт детского лагеря «Территория МЫ»
+User-agent: *
+Allow: /
+
+Sitemap: https://desm00nt.github.io/TM_site/sitemap.xml
