@@ -355,13 +355,18 @@ export default function MobileTop() {
       <Mi src="/images/decor_Vector_4_1-38.png" x={107} y={312} w={125} z={5} />
       <Mi src="/images/frag_image_144_1-39.png" x={297} y={295} w={52} rot={10} z={5} />
 
-      <Mi src="/images/frag_image_84_1-23.png" x={74} y={349} w={262} rot={-9.11} z={6} />
-      <div
-        className="absolute overflow-hidden"
-        style={{ left: um(93), top: um(366), width: um(224), height: um(228), transform: "rotate(-9.11deg)", zIndex: 7 }}
-      >
-        <img src="/images/obschee_foto_1-24.webp" alt="Дети бегут на территории лагеря" className="h-full w-full object-cover" />
-      </div>
+      {/* полароид: та же геометрия, что на десктопе (рамка +5.727°, фото — рендер узла с обрезкой по контуру), масштаб ≈ 0.61 */}
+      <Mi src="/images/frag_image_84_1-23.png" x={49} y={323} w={314} h={314} rot={5.727} z={6} />
+      <Mi
+        src="/images/rc_1-24.png"
+        alt="Дети бегут на территории лагеря"
+        x={77}
+        y={350}
+        w={258}
+        h={261}
+        z={7}
+        style={{ clipPath: "polygon(0.27% 13.83%, 85.80% 0.27%, 99.73% 86.17%, 14.20% 99.73%)" }}
+      />
 
       <a
         href="#form-m"
@@ -500,10 +505,10 @@ export default function MobileTop() {
       <Mt x={70} y={5755} size={11.5} lh={22} z={5} style={{ whiteSpace: "pre", letterSpacing: um(-0.2) }}>{shift.ages.join("\n")}</Mt>
 
       {/* что входит */}
-      <Mi src="/images/svc_living.png" x={43} y={5862} w={59} h={67} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_food.png" x={144} y={5868} w={71} h={67} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_bus.png" x={35} y={5984} w={74} h={59} z={4} style={{ objectFit: "contain" }} />
-      <Mi src="/images/svc_med.png" x={151} y={5972} w={56} h={65} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_living.png" x={43} y={5863.5} w={59} h={64} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_food.png" x={147} y={5872} w={65} h={59} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_bus.png" x={35.5} y={5993.5} w={73} h={40} z={4} style={{ objectFit: "contain" }} />
+      <Mi src="/images/svc_med.png" x={152} y={5974.5} w={54} h={60} z={4} style={{ objectFit: "contain" }} />
       <Mt x={31} y={5929} size={12} lh={14.65} color={LIGHT} z={4} w={82}>{"Проживание в ГК Регина"}</Mt>
       <Mt x={148} y={5929} size={12} lh={14.65} color={LIGHT} z={4} w={63}>{"5-разовое питание"}</Mt>
       <Mt x={41} y={6037} size={12} lh={14.65} color={LIGHT} z={4}>Трансфер</Mt>

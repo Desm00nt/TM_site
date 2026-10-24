@@ -76,10 +76,10 @@ export default function Shifts() {
 
         {/* что входит */}
         {[
-          { src: "/images/svc_living.png", x: 528, y: 561, w: 46, h: 52 },
-          { src: "/images/svc_food.png", x: 633, y: 565, w: 53, h: 50 },
-          { src: "/images/svc_bus.png", x: 523, y: 682, w: 55, h: 44 },
-          { src: "/images/svc_med.png", x: 636, y: 673, w: 45, h: 52 },
+          { src: "/images/svc_living.png", x: 528.5, y: 562.5, w: 45, h: 49 },
+          { src: "/images/svc_food.png", x: 634.5, y: 566.5, w: 50, h: 45 },
+          { src: "/images/svc_bus.png", x: 523, y: 688.5, w: 56, h: 31 },
+          { src: "/images/svc_med.png", x: 637.5, y: 677, w: 41, h: 46 },
         ].map((ic) => (
           <img key={ic.src} src={ic.src} alt="" aria-hidden draggable={false} className="absolute z-[3] object-contain" style={{ left: u(ic.x), top: u(ic.y), width: u(ic.w), height: u(ic.h) }} />
         ))}
