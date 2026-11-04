@@ -1,10 +1,11 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
-import { CONTACTS, FAQ, NAV, REVIEWS, SHIFTS } from "@/lib/tm";
+import { CONTACTS, FAQ, NAV, SHIFTS } from "@/lib/tm";
+import { REVIEW_LIST } from "@/lib/reviews";
 import { formatPhone, isPhoneValid, sendLead } from "@/lib/lead";
 import { useToast } from "@/hooks/use-toast";
-import { AVATARS } from "./Reviews";
+import { ReviewAvatar } from "./Reviews";
 import { MWAVES } from "@/lib/tm-waves-mobile";
 import { Fig, um } from "./decor";
 
@@ -221,12 +222,17 @@ export default function MobileTop() {
   const [ph, setPh] = useState(0);
 
   // отзывы: по два на странице
-  const ORDER = [1, 0, 2, 3, 4];
+  const RPAGES = Math.ceil(REVIEW_LIST.length / 2);
   const [rp, setRp] = useState(0);
-  const slot1 = REVIEWS[ORDER[rp * 2]];
-  const slot2 = ORDER[rp * 2 + 1] !== undefined ? REVIEWS[ORDER[rp * 2 + 1]] : null;
-  const t1 = useRef<HTMLParagraphElement>(null);
-  const t2 = useRef<HTMLParagraphElement>(null);
+  const [rdir, setRdir] = useState(1);
+  const goR = (d: number) => {
+    setRdir(d);
+    setRp((i) => (i + d + RPAGES) % RPAGES);
+  };
+  const slot1 = REVIEW_LIST[rp * 2];
+  const slot2 = REVIEW_LIST[rp * 2 + 1] ?? null;
+  const t1 = useRef<HTMLDivElement>(null);
+  const t2 = useRef<HTMLDivElement>(null);
   const [h1, setH1] = useState(64);
   const [h2, setH2] = useState(80);
 
@@ -565,26 +571,37 @@ export default function MobileTop() {
       <Mi src="/images/frag_image_164_1-218.png" x={42} y={6932} w={80} h={50} z={3} />
       <Mi src="/images/texts/t_1-84.png" alt="до встречи летом!!" x={137} y={6941} w={99} z={4} />
 
-      {/* отзыв 1 */}
-      <div className="absolute bg-[#D9E3F4]" style={{ left: um(35), top: um(6972), width: um(295), height: um(h1 + 23), borderRadius: um(40), zIndex: 4 }} />
-      <p ref={t1} className="tm-font-body absolute m-0 font-medium" style={{ left: um(53), top: um(6986), width: um(258), fontSize: um(13), lineHeight: um(15.85), letterSpacing: um(-0.13), color: DARK, zIndex: 5 }}>
-        {slot1.text}
-      </p>
-      <RAvatar src={slot1.avatar} x={249} y={6972 + h1 + 23 - 16} size={81} />
-      {/* отзыв 2 */}
-      {slot2 && (
-        <>
-          <div className="absolute bg-[#D9E3F4]" style={{ left: um(68), top: um(7172 + s2), width: um(254), height: um(h2 + 54), borderRadius: `${um(20)} ${um(60)} ${um(60)} ${um(60)}`, zIndex: 4 }} />
-          <p ref={t2} className="tm-font-body absolute m-0 font-medium" style={{ left: um(82), top: um(7182 + s2), width: um(233), fontSize: um(13), lineHeight: um(15.85), letterSpacing: um(-0.13), color: DARK, zIndex: 5 }}>
-            {slot2.text}
+      {/* отзывы: пузырь 1 и 2, текст из документа; при листании «выпрыгивают» по очереди */}
+      <div key={rp} aria-live="polite" style={{ ["--dx" as string]: rdir > 0 ? "24px" : "-24px" }}>
+        <div className="tm-bubble-in absolute bg-[#D9E3F4]" style={{ left: um(35), top: um(6972), width: um(295), height: um(h1 + 23), borderRadius: um(40), zIndex: 4 }} />
+        <div ref={t1} className="tm-bubble-in absolute" style={{ left: um(53), top: um(6986), width: um(258), zIndex: 5 }}>
+          <p className="tm-font-body m-0 font-medium" style={{ fontSize: um(13), lineHeight: um(15.85), letterSpacing: um(-0.13), color: DARK }}>
+            {slot1.text}
           </p>
-          <RAvatar src={slot2.avatar} x={170} y={7172 + s2 + h2 + 54 - 30} size={73} />
-        </>
-      )}
-      <ArrowBtn x={17} y={7121} w={40} h={33} dir="l" label="Предыдущие отзывы" gw={22} onClick={() => setRp((i) => (i + 2) % 3)} />
-      <ArrowBtn x={335} y={7121} w={40} h={33} dir="r" label="Следующие отзывы" gw={24} onClick={() => setRp((i) => (i + 1) % 3)} />
-      <Mi src="/images/texts/t_19-68.png" alt="нажми, чтобы увидеть больше!" x={57} y={7132} w={88} z={4} />
-      <Mi src="/images/frag_image_164_1-220.png" x={29} y={7294 + s2} w={67} h={61} z={6} />
+          <p className="tm-font-body m-0 font-semibold" style={{ marginTop: um(6), fontSize: um(11.5), lineHeight: um(14), color: BLUE, paddingRight: um(70) }}>
+            {slot1.author}
+          </p>
+        </div>
+        <ReviewAvatar name={slot1.author} size={81} unit={um} className="tm-bubble-in absolute" style={{ left: um(249), top: um(6972 + h1 + 23 - 16), zIndex: 6, ["--d" as string]: "120ms" }} />
+        {slot2 && (
+          <>
+            <div className="tm-bubble-in absolute bg-[#D9E3F4]" style={{ left: um(68), top: um(7172 + s2), width: um(254), height: um(h2 + 54), borderRadius: `${um(20)} ${um(60)} ${um(60)} ${um(60)}`, zIndex: 4, ["--d" as string]: "110ms" }} />
+            <div ref={t2} className="tm-bubble-in absolute" style={{ left: um(82), top: um(7182 + s2), width: um(233), zIndex: 5, ["--d" as string]: "110ms" }}>
+              <p className="tm-font-body m-0 font-medium" style={{ fontSize: um(13), lineHeight: um(15.85), letterSpacing: um(-0.13), color: DARK }}>
+                {slot2.text}
+              </p>
+              <p className="tm-font-body m-0 font-semibold" style={{ marginTop: um(6), fontSize: um(11.5), lineHeight: um(14), color: BLUE, paddingRight: um(60) }}>
+                {slot2.author}
+              </p>
+            </div>
+            <ReviewAvatar name={slot2.author} size={73} unit={um} className="tm-bubble-in absolute" style={{ left: um(170), top: um(7172 + s2 + h2 + 54 - 30), zIndex: 6, ["--d" as string]: "230ms" }} />
+          </>
+        )}
+      </div>
+      <ArrowBtn x={17} y={7121 + s2} w={40} h={33} dir="l" label="Предыдущие отзывы" gw={22} onClick={() => goR(-1)} />
+      <ArrowBtn x={335} y={7121 + s2} w={40} h={33} dir="r" label="Следующие отзывы" gw={24} onClick={() => goR(1)} />
+      <Mi src="/images/texts/t_19-68.png" alt="нажми, чтобы увидеть больше!" x={57} y={7132 + s2} w={88} z={4} />
+      <Mi src="/images/frag_image_164_1-220.png" x={29} y={R(7294)} w={67} h={61} z={6} />
       <Mi src="/images/texts/t_1-83.png" alt="обязательно вернусь ещё!" x={200} y={R(7352)} w={136} z={4} />
       <Mt x={33} y={R(7407)} size={14} lh={17.1} color={W} z={4} w={250}>
         Больше отзывов вы можете найти у нас в группе{" "}
@@ -767,26 +784,6 @@ export default function MobileTop() {
           </nav>
         </div>
       )}
-    </div>
-  );
-}
-
-/** Круглый аватар отзыва: исходный кадр с точным смещением из макета (масштаб от круга 81) */
-function RAvatar({ src, x, y, size }: { src: string; x: number; y: number; size: number }) {
-  const a = AVATARS.find((v) => v.src === src);
-  const k = size / 81;
-  return (
-    <div className="absolute overflow-hidden rounded-full" style={{ left: um(x), top: um(y), width: um(size), height: um(size), zIndex: 6 }}>
-      <img
-        src={src}
-        alt="Аватар автора отзыва"
-        className="absolute max-w-none object-cover"
-        style={
-          a
-            ? { left: um((a.rect[0] - a.circle[0]) * k), top: um((a.rect[1] - a.circle[1]) * k), width: um(a.rect[2] * k), height: um(a.rect[3] * k) }
-            : { left: 0, top: 0, width: "100%", height: "100%" }
-        }
-      />
     </div>
   );
 }
