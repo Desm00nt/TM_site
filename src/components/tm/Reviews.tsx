@@ -14,31 +14,15 @@ const Y = -5866;
  * edge="top" — выступает сверху (dx — от левого края пузыря, over — на сколько выходит за край).
  */
 const SLOTS = [
-  { x: 500, y: 6094, w: 280, h: 148, radius: "20px 83px 86px 86px", av: { dx: 112, size: 81, edge: "bottom", over: 48 }, pt: 17, pb: 40 },
-  { x: 182, y: 6195, w: 295, h: 87, radius: "40px", av: { dx: 214, size: 81, edge: "bottom", over: 65 }, pt: 14, pb: 22 },
-  { x: 787, y: 6177, w: 283, h: 167, radius: "60px", av: { dx: 23, size: 81, edge: "bottom", over: 43 }, pt: 20, pb: 40 },
-  { x: 219, y: 6450, w: 181, h: 188, radius: "20px 20px 86px 20px", av: { dx: 141, size: 78, edge: "top", over: 52 }, pt: 32, pb: 18 },
-  { x: 509, y: 6437, w: 385, h: 83, radius: "0px 70px 0px 70px", av: { dx: 50, size: 81, edge: "top", over: 64 }, pt: 22, pb: 16 },
+  { x: 500, y: 6094, w: 280, h: 148, radius: "20px 83px 86px 86px", pt: 17, pb: 40 },
+  { x: 182, y: 6195, w: 295, h: 87, radius: "40px", pt: 14, pb: 22 },
+  { x: 787, y: 6177, w: 283, h: 167, radius: "60px", pt: 20, pb: 40 },
+  { x: 219, y: 6450, w: 181, h: 188, radius: "20px 20px 86px 20px", pt: 32, pb: 18 },
+  { x: 509, y: 6437, w: 385, h: 83, radius: "0px 70px 0px 70px", pt: 22, pb: 16 },
 ] as const;
-
-/** Круглый аватар-инициал (фото авторов у нас нет, чужие лица к реальным именам не подставляем) */
-export function ReviewAvatar({ name, size, className = "", style, unit = u }: { name: string; size: number; className?: string; style?: CSSProperties; unit?: (n: number) => string }) {
-  const letter = name.trim().charAt(0).toUpperCase();
-  return (
-    <span
-      aria-hidden
-      className={`tm-font-head flex select-none items-center justify-center rounded-full bg-[#EC812D] font-bold text-[#F8F8F7] ${className}`}
-      style={{ width: unit(size), height: unit(size), fontSize: unit(size * 0.46), zIndex: 2, ...style }}
-    >
-      {letter}
-    </span>
-  );
-}
 
 function Bubble({ review, slot, order, dir, style }: { review: Review; slot: number; order: number; dir: number; style?: CSSProperties }) {
   const sl = SLOTS[slot];
-  const av = sl.av;
-  const avStyle = av.edge === "bottom" ? { bottom: u(-av.over) } : { top: u(-av.over) };
   return (
     <figure
       className="tm-bubble-in relative m-0 shrink-0 bg-[#D9E3F4]"
@@ -59,7 +43,6 @@ function Bubble({ review, slot, order, dir, style }: { review: Review; slot: num
       <figcaption className="tm-font-body font-semibold text-[#256BC6]" style={{ marginTop: u(8), fontSize: u(12), lineHeight: u(15) }}>
         {review.author}
       </figcaption>
-      <ReviewAvatar name={review.author} size={av.size} className="absolute" style={{ left: u(av.dx), ...avStyle }} />
     </figure>
   );
 }
