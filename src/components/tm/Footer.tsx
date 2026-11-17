@@ -83,14 +83,14 @@ export default function Footer() {
         </ul>
 
         {/* разделитель */}
-        <hr className="absolute border-0 border-t bg-[#3D3D3D]/40" style={{ left: u(108), top: u(8603 + Y), width: u(1064), height: "1px" }} />
+        <hr className="absolute border-0 border-t border-[#3D3D3D]/40" style={{ left: u(108), top: u(8603 + Y), width: u(1064), height: "1px" }} />
 
         {/* адреса */}
         <Deco x={110} y={8634 + Y} w={29} src="/images/frag_image_185_1-288.png" z={2} />
         <p className="tm-font-body absolute font-medium text-[#3D3D3D]" style={{ left: u(141), top: u(8641 + Y), fontSize: u(15) }}>
           Офис в Казани, ул. Спартаковская 2к1
         </p>
-        <Deco x={110} y={8669 + Y} w={29} src="/images/frag_image_185_1-288.png" z={2} />
+        <Deco x={110} y={8669 + Y} w={29} src="/images/image_186_1-284.png" z={2} />
         <p className="tm-font-body absolute font-medium text-[#3D3D3D]" style={{ left: u(141), top: u(8676 + Y), fontSize: u(15) }}>
           ГК «Регина», Мамадыш
         </p>
@@ -167,7 +167,7 @@ export default function Footer() {
             Офис в Казани, ул. Спартаковская 2к1
           </p>
           <p className="flex items-center gap-2">
-            <img src="/images/frag_image_185_1-288.png" alt="" aria-hidden className="w-4" />
+            <img src="/images/image_186_1-284.png" alt="" aria-hidden className="w-4" />
             ГК «Регина», Мамадыш
           </p>
           <span className="block pt-2 text-right text-[#3D3D3D]/70">Политика конфиденциальности</span>
