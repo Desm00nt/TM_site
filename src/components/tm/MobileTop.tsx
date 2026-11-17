@@ -5,7 +5,6 @@ import { CONTACTS, FAQ, NAV, SHIFTS } from "@/lib/tm";
 import { REVIEW_LIST } from "@/lib/reviews";
 import { formatPhone, isPhoneValid, sendLead } from "@/lib/lead";
 import { useToast } from "@/hooks/use-toast";
-import { ReviewAvatar } from "./Reviews";
 import { MWAVES } from "@/lib/tm-waves-mobile";
 import { Fig, um } from "./decor";
 
@@ -582,7 +581,6 @@ export default function MobileTop() {
             {slot1.author}
           </p>
         </div>
-        <ReviewAvatar name={slot1.author} size={81} unit={um} className="tm-bubble-in absolute" style={{ left: um(249), top: um(6972 + h1 + 23 - 16), zIndex: 6, ["--d" as string]: "120ms" }} />
         {slot2 && (
           <>
             <div className="tm-bubble-in absolute bg-[#D9E3F4]" style={{ left: um(68), top: um(7172 + s2), width: um(254), height: um(h2 + 54), borderRadius: `${um(20)} ${um(60)} ${um(60)} ${um(60)}`, zIndex: 4, ["--d" as string]: "110ms" }} />
@@ -594,7 +592,6 @@ export default function MobileTop() {
                 {slot2.author}
               </p>
             </div>
-            <ReviewAvatar name={slot2.author} size={73} unit={um} className="tm-bubble-in absolute" style={{ left: um(170), top: um(7172 + s2 + h2 + 54 - 30), zIndex: 6, ["--d" as string]: "230ms" }} />
           </>
         )}
       </div>
